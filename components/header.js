@@ -5,8 +5,7 @@ import { MoonIcon, SunIcon } from "@primer/octicons-react";
 
 import styles from "./header.module.css";
 
-
-const Header = (props) => {
+const Header = () => {
     const { switchTheme, theme } = useContext(ThemeContext);
 
     return (

@@ -1,0 +1,18 @@
+/*
+  Medias Context for Dark/Light Mode
+*/
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: var(--dark-color);
+    --color: var(--light-color);
+  }
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-color: var(--light-color);
+    --color: var(--dark-color);
+  }
+}

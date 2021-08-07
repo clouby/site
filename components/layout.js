@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import Link from "next/link";
 import Head from "next/head";
+import Image from "next/image";
 
 import { ThemeContext } from "./../context/theme";
 
@@ -9,14 +10,14 @@ import utilStyles from "../styles/utils.module.css";
 
 const name = "Carlos López"
 export const nickname = "clouby"
-export const siteTitle = "clouby - Frontend Developer"
+export const siteTitle = `${nickname} - Front-end Developer`
 
 export default function Layout({ children, home }) {
 
     const { theme } = useContext(ThemeContext);
 
     return (
-        <div className={styles.container} style={{ ...theme }}>
+        <div className={styles.container}>
             <Head>
                 <link rel="icon" href="/favicon.ico" />
                 <meta
@@ -42,6 +43,17 @@ export default function Layout({ children, home }) {
                     home ?
                         (
                             <>
+                                <div className={styles.mainAvatar}>
+                                    <Image
+                                        src="/images/profile_2.jpg"
+                                        alt="Picture Profile"
+                                        layout="intrinsic"
+                                        height="250"
+                                        width="250"
+                                        placeholder="blur"
+                                        blurDataURL="/images/blur.png"
+                                    />
+                                </div>
                                 <h1 className={utilStyles.heading2Xl}>
                                     {name}
                                     <b className={`${styles.nick} ${styles.spaceDot}`}>·</b>

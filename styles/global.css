@@ -1,13 +1,16 @@
 /*
-  Font Face Built-in
+  Import Custom CSS
+*/
+
+@import url("variables.css");
+@import url("highlight.css");
+@import url("medias.css");
+
+/*
+  Font Face Built-In
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,600;0,700;1,300;1,400;1,600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Fira+Code:wght@300;400;500;600;700&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-:root {
-  --background-color: #101010;
-  --color: azure;
-}
 
 html,
 body {
@@ -26,7 +29,7 @@ body {
 }
 
 hr {
-  border: 1px dashed purple;
+  border: 1px dashed #A599E9;
   margin: 2rem 0rem 2rem;
 }
 
@@ -48,102 +51,6 @@ p {
 img {
   max-width: 100%;
   display: block;
-}
-
-/*
-  Shades of Purple theme - Highlight.js
-*/
-
- .hljs {
-  display: block;
-  font-size: 0.8rem;
-	overflow-x: auto;
-	font-family: 'Source Code Pro', 'Menlo', 'Monaco', 'Courier New', 'monospace';
-	line-height: 1.45;
-	padding: 2rem;
-	background: #2d2b57;
-  font-weight: normal;
-  border-radius: 5px;
-  margin: 0rem;
-}
-
-.hljs-title {
-	color: #fad000;
-	font-weight: normal;
-}
-
-.hljs-name {
-	color: #a1feff;
-}
-
-.hljs-tag {
-	color: #ffffff;
-}
-
-.hljs-attr {
-	color: #f8d000;
-	font-style: italic;
-}
-
-.hljs-built_in,
-.hljs-selector-tag,
-.hljs-section {
-	color: #fb9e00;
-}
-
-.hljs-keyword {
-	color: #fb9e00;
-}
-
-.hljs,
-.hljs-subst {
-	color: #e3dfff;
-}
-
-.hljs-string,
-.hljs-attribute,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition,
-.hljs-code,
-.hljs-regexp,
-.hljs-selector-class,
-.hljs-selector-attr,
-.hljs-selector-pseudo,
-.hljs-template-tag,
-.hljs-quote,
-.hljs-deletion {
-	color: #4cd213;
-}
-
-.hljs-meta,
-.hljs-meta-string {
-	color: #fb9e00;
-}
-
-.hljs-comment {
-	color: #ac65ff;
-}
-
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-name,
-.hljs-strong {
-	font-weight: normal;
-}
-
-.hljs-literal,
-.hljs-number {
-	color: #fa658d;
-}
-
-.hljs-emphasis {
-	font-style: italic;
-}
-
-.hljs-strong {
-	font-weight: bold;
 }
 
 code {

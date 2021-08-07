@@ -31,7 +31,7 @@ export default function Home({ allPostsData, allTalksData }) {
       </section>
       <hr />
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingTitle}>_blog</h2>
+        <h2 className={utilStyles.headingTitle}>_Blog_</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title, time }) => (
             <li className={utilStyles.listItem} key={id}>
@@ -49,7 +49,7 @@ export default function Home({ allPostsData, allTalksData }) {
       </section>
       <hr />
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingTitle}>_talks</h2>
+        <h2 className={utilStyles.headingTitle}>_Talks_</h2>
         <div>
           <ul className={utilStyles.list}>
             {allTalksData.map((talk, index) => (

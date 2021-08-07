@@ -33,3 +33,9 @@
 .spaceDot {
     padding: 0rem 1rem;
 }
+
+.mainAvatar {
+    border-radius: 99999px;
+    overflow: hidden;
+    height: 250px;
+}

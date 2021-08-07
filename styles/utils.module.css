@@ -1,12 +1,12 @@
 .heading2Xl {
     font-size: 2.7rem;
-    line-height: 1.2;
+    line-height: 2;
     font-weight: 800;
-    letter-spacing: -0.05rem;
+    letter-spacing: -0.1rem;
     margin: 0.7rem 0;
     font-family: Fira Code;
     text-align: center;
-  }
+}
 
   .headingXl {
     font-size: 2rem;

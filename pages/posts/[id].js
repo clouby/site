@@ -20,7 +20,7 @@ export default function Post({ postData }) {
                     <span> · {postData.time.text}</span>
                 </div>
                 <span className={`${cardStyles.avatarTitle} ${utilStyles.lightText}`} style={{ margin: '1rem 0rem' }}> -
-                    <img src="/images/profile.jpg" />
+                    <img src="/images/profile_2.jpg" />
                     Carlos López
                 </span>
                 <div className={`${utilStyles.fontPost} ${utilStyles.spaceList}`} dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />

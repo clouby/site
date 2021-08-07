@@ -12,7 +12,7 @@ export default function Card({ date, title, link }) {
                 </small>
                 <h2 className={styles.spaceOut}>{title}
                     <span className={styles.avatarTitle}> -
-                    <img src="/images/profile.jpg" />
+                    <img src="/images/profile_2.jpg" />
                     Carlos López
                 </span>
                 </h2>
