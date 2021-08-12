@@ -1,95 +1,79 @@
-/*
-  Shades of Purple theme - Highlight.js
-*/
+/* Dracula Theme v1.2.5
+ *
+ * https://github.com/dracula/highlightjs
+ *
+ * Copyright 2016-present, All rights reserved
+ *
+ * Code licensed under the MIT license
+ *
+ * @author Denis Ciccale <dciccale@gmail.com>
+ * @author Zeno Rocha <hi@zenorocha.com>
+ */
 
 .hljs {
-  display: block;
-  font-size: 0.8rem;
+	display: block;
 	overflow-x: auto;
-	font-family: 'Source Code Pro', 'Menlo', 'Monaco', 'Courier New', 'monospace';
-	line-height: 1.45;
-	padding: 2rem;
-	background: #2d2b57;
-  font-weight: normal;
-  border-radius: 5px;
-  margin: 0rem;
-}
-
-.hljs-title {
-	color: #fad000;
-	font-weight: normal;
-}
-
-.hljs-name {
-	color: #a1feff;
-}
-
-.hljs-tag {
-	color: #ffffff;
-}
-
-.hljs-attr {
-	color: #f8d000;
-	font-style: italic;
+	padding: 2.5em;
+	background: #22212C;
 }
 
 .hljs-built_in,
 .hljs-selector-tag,
-.hljs-section {
-	color: #fb9e00;
+.hljs-section,
+.hljs-link {
+	color: #82FFEC;
 }
 
 .hljs-keyword {
-	color: #fb9e00;
+	color: #FF82C3;
 }
 
 .hljs,
 .hljs-subst {
-	color: #e3dfff;
+	color: #F5F5F0;
+}
+
+.hljs-title {
+	color: #8AFD80;
 }
 
 .hljs-string,
-.hljs-attribute,
+.hljs-meta,
+.hljs-name,
+.hljs-type,
+.hljs-attr,
 .hljs-symbol,
 .hljs-bullet,
 .hljs-addition,
-.hljs-code,
-.hljs-regexp,
-.hljs-selector-class,
-.hljs-selector-attr,
-.hljs-selector-pseudo,
+.hljs-variable,
 .hljs-template-tag,
+.hljs-template-variable {
+	color: #FFFF81;
+}
+
+.hljs-comment,
 .hljs-quote,
 .hljs-deletion {
-	color: #4cd213;
-}
-
-.hljs-meta,
-.hljs-meta-string {
-	color: #fb9e00;
-}
-
-.hljs-comment {
-	color: #ac65ff;
+	color: #776EA5;
 }
 
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-literal,
+.hljs-title,
+.hljs-section,
+.hljs-doctag,
+.hljs-type,
 .hljs-name,
 .hljs-strong {
-	font-weight: normal;
+	font-weight: bold;
 }
 
 .hljs-literal,
 .hljs-number {
-	color: #fa658d;
+	color: #B382D9;
 }
 
 .hljs-emphasis {
 	font-style: italic;
-}
-
-.hljs-strong {
-	font-weight: bold;
 }

@@ -10,7 +10,7 @@
     color: inherit;
 }
 
-.mainCard:hover {
+.mainCard:not(:hover) {
     border-style: dotted;
     cursor: pointer;
     opacity: 0.8;

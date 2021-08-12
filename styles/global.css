@@ -60,9 +60,8 @@ code {
   padding: 0.2rem 0.3rem;
   font-size: 0.9rem;
   margin: 0rem 0.1rem 0rem;
-  font-family: "Source Code Pro";
+  font-family: "Fira Code";
   border-radius: 5px;
-  font-weight: bold;
 }
 
 blockquote {

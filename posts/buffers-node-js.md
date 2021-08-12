@@ -1,6 +1,7 @@
 ---
 title: '📝 - Buffers en Node.JS'
 date: '2020-06-28'
+published: true
 ---
 
 En el mundo de la internet y lo que mayor importancia se demuestra al navergar, es la información. En general, en la internet es muy comun aprovechar y proveer diferentes tipos de información, como son imágenes, videos, entre otros.
