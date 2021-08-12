@@ -1,6 +1,7 @@
 ---
 title: '🔮 - Seamos reactivos con Proxy'
 date: '2021-08-05'
+published: false
 ---
 
 Hace pocos dias estuvie investigando un poco sobre **VueJS** ya que soy un completo principiante con respecto a este interesante framework del cliente, pero en mi pronta investigacion, encontre que lanzaron la nueva version de esta tecnologia que seria la version 3, que actualmente ya se encuentr publica y estable (de momento).
@@ -98,7 +99,7 @@ En el primer archivo a crear será `index.html` que tiene la siguiente estructur
 </html>
 ~~~
 
-Como mencioné anteriormente, existira una etiqueta que mostrara el resultado en tiempo de ejecucion - en este caso es en `h2` - y el que estaria ingresando valores - seria nuestra etiqueta `input` - para cumplir este caso.
+Como mencioné anteriormente, existirá una etiqueta que mostrara el resultado en tiempo de ejecucion - en este caso es en `h2` - y el que estaria ingresando valores - seria nuestra etiqueta `input` - para cumplir este caso.
 
 En el segundo archivo será llamado `proxy.js` con las siguientes instrucciones:
 
@@ -110,3 +111,49 @@ const initialData = {
 ~~~
 
 En la primera instruccion que definimos el objeto global, la aplicacion entenderia que la llave - en este caso seria `username` - tambien seria el valor de referencia clave para los atributos que usaremos para actualizar los datos en ejecucion.
+
+Despues de definir nuestro estado inicial, procedemos a implementar nuestra funcion que usara `Proxy` para la observacion del estado inicial, esta funcion la llamaremos `reactMin`
+
+~~~javascript
+// Define proxy function
+function reactMin(data) {
+  // Create handler object
+  const handler = {
+    set(target, property, value) {
+      if (typeof value === 'string') {
+        const elements = document.querySelectorAll(`[data-get="${property}"]`)
+        elements.forEach(element => {
+          element.textContent = value
+        })
+      }
+
+      Reflect.set(target, property, value)
+    }
+  }
+
+  // Instance proxy state
+  const proxy = new Proxy(data, handler)
+
+  // Create event listeners for all inputs
+  function setDataEvents(proxyData) {
+    return Object.keys(proxyData).forEach(key => {
+
+      const element = document.querySelector(`[name=${key}]`)
+
+      element.addEventListener('input', (event) => {
+        Reflect.set(proxyData, key, event.target.value)
+      })
+    })
+  }
+
+  setDataEvents(proxy)
+
+  return proxy
+}
+~~~
+
+Este codigo se ha definido los siguientes bloques:
+- `handler`: Este contiene todos los metodos que la API de **Proxy** soporta actualmente. Este caso demasiado puntual solo usaremos el metodo `set` para observar si la propiedad tendra un cambio "en camino" para poder alterarlo a que tambien modifique los **atributos en el HTML** con el nombre del campo existente
+- `proxy`: Esta variable crea la instancia relacionada a la API de **Proxy** solo recibiendo el objeto el cual será observado y el segundo parametro seria el `handler`
+- `setDataEvents`: Este ultimo va a generar solo los **inputs** del HTML que contengan el valor de alguno de los campos observados en el proxy - que en nuestro caso solo será `username`
+
