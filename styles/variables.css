@@ -3,4 +3,6 @@
   --light-color: rgb(242, 242, 247);
   --background-color: var(--dark-color);
   --color: var(--light-color);
+  --light-text: lightgray;
+  --dark-text: darkgray;
 }

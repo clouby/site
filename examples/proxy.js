@@ -1,6 +1,10 @@
 // Define main function
 const initialData = {
-  username: 'Carlos'
+  username: ''
+}
+
+function getAsyncName(id = 1) {
+  return fetch(`https://my-json-server.typicode.com/joseluisgs/APIRESTFake/users/${id}`).then(response => response.json());
 }
 
 // Define proxy function
@@ -40,4 +44,10 @@ function reactMin(data) {
 
 const app = reactMin(initialData);
 
-app.username =  'Carlos'
+const changeName = document.getElementById('async-name')
+
+changeName.addEventListener('click', async () => {
+  app.username = 'Loading...'
+  const { name } = await getAsyncName(2)
+  app.username = name
+})
