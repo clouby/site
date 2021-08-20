@@ -208,7 +208,7 @@ const app = reactMin(initialData)
 })()
 ~~~
 
-El resultado seria el siguiente...
+El resultado seria el siguiente:
 
 <!-- video line -->
 <figure class="videoContainer">
@@ -220,8 +220,8 @@ El resultado seria el siguiente...
 
 ## Conclusión
 
-Logramos entender un poco el proposito basico y abstracto de que son los proxys, y su utilidad a la hora de generar observadores para generar acciones para `X` proposito.
+Logramos entender un poco el propósito básico y abstracto de que son los proxys, y su utilidad a la hora de generar observadores para generar acciones para `X` propiedad.
 
-Tambien es importante entender de que en esto ha sido inspirado muchas librerias y frameworks reactivos, con el proposito de generar una accion/efecto en todos las variables que esperan ser cambiadas, aun asi podemos ser reactivos fuera de estas tecnologias, y evaluar nuestras propios metodos.
+También es importante entender de que en esto ha sido inspirado muchas librerias y frameworks reactivos, con el propósito de generar una acción/efecto en todos las variables que esperan ser cambiadas, aun así podemos ser reactivos fuera de estas tecnologías, y evaluar nuestros propios métodos.
 
 Espero que haya sido de mucha ayuda, 🤘🏽.
