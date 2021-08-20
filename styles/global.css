@@ -60,7 +60,7 @@ code {
   padding: 0.2rem 0.3rem;
   font-size: 0.9rem;
   margin: 0rem 0.1rem 0rem;
-  font-family: "Fira Code";
+  font-family: "Source Code Pro";
   border-radius: 5px;
 }
 
@@ -81,6 +81,11 @@ blockquote {
 
 ::-moz-selection {
   background-color: indigo;
+}
+
+.videoContainer {
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .videoContainer video {

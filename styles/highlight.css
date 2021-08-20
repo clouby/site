@@ -1,80 +1,96 @@
-/* Dracula Theme v1.2.5
+/**
+ * Shades of Purple Theme — for Highlightjs.
  *
- * https://github.com/dracula/highlightjs
- *
- * Copyright 2016-present, All rights reserved
- *
- * Code licensed under the MIT license
- *
- * @author Denis Ciccale <dciccale@gmail.com>
- * @author Zeno Rocha <hi@zenorocha.com>
+ * @author (c) Ahmad Awais <https://twitter.com/mrahmadawais/>
+ * @link GitHub Repo → https://github.com/ahmadawais/Shades-of-Purple-HighlightJS
+ * @version 1.5.0
  */
 
 .hljs {
 	display: block;
 	overflow-x: auto;
-	padding: 2.5em;
-	background: #22212C;
-	font-weight: 400;
+	font-family: 'Source Code Pro', 'Menlo', 'Monaco', 'Courier New', 'monospace';
+	line-height: 1.45;
+	padding: 2rem;
+	background: #2d2b57;
+	font-weight: normal;
+}
+
+.hljs-title {
+	color: #fad000;
+	font-weight: normal;
+}
+
+.hljs-name {
+	color: #a1feff;
+}
+
+.hljs-tag {
+	color: #ffffff;
+}
+
+.hljs-attr {
+	color: #f8d000;
+	font-style: italic;
 }
 
 .hljs-built_in,
 .hljs-selector-tag,
-.hljs-section,
-.hljs-link {
-	color: #82FFEC;
+.hljs-section {
+	color: #fb9e00;
 }
 
 .hljs-keyword {
-	color: #FF82C3;
+	color: #fb9e00;
 }
 
 .hljs,
 .hljs-subst {
-	color: #F5F5F0;
-}
-
-.hljs-title {
-	color: #8AFD80;
+	color: #e3dfff;
 }
 
 .hljs-string,
-.hljs-meta,
-.hljs-name,
-.hljs-type,
-.hljs-attr,
+.hljs-attribute,
 .hljs-symbol,
 .hljs-bullet,
 .hljs-addition,
-.hljs-variable,
+.hljs-code,
+.hljs-regexp,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
 .hljs-template-tag,
-.hljs-template-variable {
-	color: #FFFF81;
-}
-
-.hljs-comment,
 .hljs-quote,
 .hljs-deletion {
-	color: #776EA5;
+	color: #4cd213;
+}
+
+.hljs-meta,
+.hljs-meta-string {
+	color: #fb9e00;
+}
+
+.hljs-comment {
+	color: #ac65ff;
 }
 
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-literal,
-.hljs-title,
-.hljs-section,
-.hljs-doctag,
-.hljs-type,
 .hljs-name,
 .hljs-strong {
-	font-weight: bold;
+	font-weight: normal;
 }
 
 .hljs-literal,
 .hljs-number {
-	color: #B382D9;
+	color: #fa658d;
 }
 
 .hljs-emphasis {
 	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
 }

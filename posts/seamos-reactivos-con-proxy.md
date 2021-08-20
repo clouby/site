@@ -1,7 +1,7 @@
 ---
 title: '🔮 - Seamos reactivos con Proxy'
 date: '2021-08-05'
-published: true
+published: false
 ---
 
 Hace pocos días estuve investigando un poco sobre **VueJS**, ya que soy un completo principiante con este interesante framework del cliente, pero en mi pronta investigación, encontré que lanzaron la nueva versión de esta tecnología que sería la **versión 3**, que actualmente ya se encuentra pública y estable.
@@ -68,7 +68,7 @@ Ahora en nuestro caso del segundo resultado si retornaria el proximo valor:
 'Dev'
 ~~~
 
-Tanto como la función nativa de Proxy - me refiero al método `get` - existen muchos basados en su [API](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
+Tanto como la función nativa de Proxy - me refiero al método `get` - existen más muchos basados en su [API](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
 
 ### Caso de Uso
 
