@@ -1,9 +1,9 @@
-import { useContext } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
 
-import { ThemeContext } from "./../context/theme";
+import { ArrowLeftIcon } from "@primer/octicons-react"
+import Footer from "./footer";
 
 import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
@@ -13,16 +13,13 @@ export const nickname = "clouby"
 export const siteTitle = `${nickname} - Front-end Developer`
 
 export default function Layout({ children, home }) {
-
-    const { theme } = useContext(ThemeContext);
-
     return (
         <div className={styles.container}>
             <Head>
                 <link rel="icon" href="/favicon.ico" />
                 <meta
                     name="description"
-                    content="Personal Website - Tech Posts & Personal Experiences"
+                    content="Personal Website - Tech Posts &amp; Personal Experiences"
                 />
                 <meta charSet="utf-8" />
                 <meta
@@ -33,7 +30,7 @@ export default function Layout({ children, home }) {
                     property="og:image"
                     content={`https://og-image.now.sh/${encodeURI(
                         siteTitle
-                    )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+                    )}.png?theme=dark&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
                 />
                 <meta name="og:title" content={siteTitle} />
                 <meta name="twitter:card" content="summary_large_image" />
@@ -64,18 +61,31 @@ export default function Layout({ children, home }) {
                             </>
                         ) : (
                             <>
-                                <h2 className={utilStyles.heading2Xl}>
+                                <div className={`${utilStyles.heading2Xl} ${styles.headPost}`}>
+                                    <Link href="/#blog">
+                                        <a className={`${utilStyles.colorInherit} ${styles.nick}`} title="Back to Blog">
+                                            <ArrowLeftIcon size={48}/>
+                                        </a>
+                                    </Link>
                                     <Link href="/">
-                                        <a className={`${utilStyles.colorInherit} ${styles.nick}`}>
+                                        <a className={`${utilStyles.colorInherit} ${styles.nick}`} title="Home">
                                             ▲
                                         </a>
                                     </Link>
-                                </h2>
+                                </div>
                             </>
                         )
                 }
             </header>
             <main>{children}</main>
+            <Footer>
+                <ul>
+                    <li><Link href="/">Home</Link></li>
+                    <li><a href="https://github.com/clouby" target="_blank">GitHub</a></li>
+                    <li><a href="http://twitter.com/cloubyy" target="_blank">Twitter</a></li>
+                    <li><Link href="/#blog" >Blog</Link></li>
+                </ul>
+            </Footer>
         </div>
     );
 }

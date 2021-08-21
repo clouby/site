@@ -1,20 +1,20 @@
 ---
 title: '🔮 - Seamos reactivos con Proxy'
 date: '2021-08-05'
-published: false
+published: true
 ---
 
-Hace pocos dias estuvie investigando un poco sobre **VueJS** ya que soy un completo principiante con respecto a este interesante framework del cliente, pero en mi pronta investigacion, encontre que lanzaron la nueva version de esta tecnologia que seria la version 3, que actualmente ya se encuentr publica y estable (de momento).
+Hace pocos días estuve investigando un poco sobre **VueJS**, ya que soy un completo principiante con este interesante framework del cliente, pero en mi pronta investigación, encontré que lanzaron la nueva versión de esta tecnología que sería la **versión 3**, que actualmente ya se encuentra pública y estable.
 
-Resulta que encontre en que su panorama de como su **data** es completamente reactiva, y a esto me encontre que explicaban con breves ejemplos como es el flujo de todo, pero pause en algo muy puntual, y es que usan una clase nativa de JavaScript, llamada **Proxy**, y es de lo que hablaremos hoy.
+Resulta que su flujo de información es completamente reactiva, además encontré que explicaban con breves ejemplos como es el flujo de todo, pero pause en algo muy puntual, y es que usan una clase nativa de JavaScript, llamada **Proxy**, y es de lo que hablaremos hoy.
 
-## Que es Proxy?
+## ¿Que es Proxy?
 
-> Basicamente es que tu puedas observar el comportamiento de un objeto, constructor, hasta de una funcion pero agregando tu observacion personalizada.
+> Basicamente puedes **observar el comportamiento** de un objeto, constructor, hasta de una función pero agregando tus mutaciones personalizadas.
 
-En otras palabras, puedes escuchar el comportamiento que tenga un objeto nativo o funcion dentro de JS, haciendo de que estos pueden ser alterados bajo nuestro criterio.
+En otras palabras, los **Proxy** pueden escuchar el comportamiento que tenga un objeto nativo o función dentro de *JavaScript*, siendo alterados bajo nuestro criterio.
 
-Vayamos a nuestro caso en particular:
+Vamos a un caso particular:
 
 ~~~javascript
 const data = { role: 'Dev' }
@@ -42,9 +42,9 @@ En los casos donde debe imprimir valores, ocurre lo siguiente:
 undefined
 ~~~
 
-En el **primer caso**, se puede observar que el parametro `target` devuelve el valor del objeto -como referencia de este- y el segundo parametro contiene la propiedad que ha sido llamada en nuestro objeto.
+En el **primer caso**, se puede observar que el parámetro `target` devuelve el valor del objeto -como referencia de este- y el segundo parámetro contiene la propiedad que ha sido llamada en nuestro objeto.
 
-En el **segundo caso** simplemente retorna `undefined` debido a que al ser un objeto proxy, y estamos personalizando el comportamiento -que en este caso es un *get*- no estamos retornando un valor en esa funcion de un proxy.
+En el **segundo caso** simplemente retorna `undefined` debido a que al ser un objeto proxy, y estamos personalizando el comportamiento -que en este caso es un *get*- no estamos retornando un valor en esa función de un proxy.
 
 ~~~javascript
 const data = { role: 'Dev' }
@@ -68,14 +68,14 @@ Ahora en nuestro caso del segundo resultado si retornaria el proximo valor:
 'Dev'
 ~~~
 
-Tanto como la funcion nativa de Proxy - me refiero al metodo `get` - existen muchos basados en su [API](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
+Tanto como la función nativa de Proxy - me refiero al método `get` - existen más muchos basados en su [API](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
 
 ### Caso de Uso
 
-En este caso crearemos unas directivas en nuestras etiquetas de **HTML**, teniendo el cuenta el siguiente criterio:
+En este caso crearemos unas directivas en nuestras etiquetas de **HTML**, teniendo en cuenta el siguiente criterio:
 
-- `data-get` : Etiqueta que tenga esta directiva (personalizada gracias al prefijo `data-*`) tendra asociado el nombre de la data reactiva y sera asignada por medio del campo `value`
-- `name` : Etiqueta que tenga esta directiva (nativa) tendra asociado el nombre de la data reactiva y sera la que genere los eventos de insercion.
+- `data-get` : Etiqueta que tenga esta directiva (personalizadas gracias al prefijo `data-*`) tendrá asociada el nombre de la data reactiva y sera asignada por medio del campo `value`
+- `name` : Etiqueta que tenga esta directiva (nativa) tendrá asociada el nombre de la data reactiva y será la que genere los eventos de inserción.
 
 En el primer archivo a crear será `index.html` que tiene la siguiente estructura:
 
@@ -99,20 +99,20 @@ En el primer archivo a crear será `index.html` que tiene la siguiente estructur
 </html>
 ~~~
 
-Como mencioné anteriormente, existirá una etiqueta que mostrara el resultado en tiempo de ejecucion - en este caso es en `h2` - y el que estaria ingresando valores - seria nuestra etiqueta `input` - para cumplir este caso.
+Como mencioné anteriormente, existirá una etiqueta que mostrara el resultado en tiempo de ejecución -en este caso es en `h2`- y quien ingresa valores sería nuestra etiqueta `input` para cumplir este caso.
 
 En el segundo archivo será llamado `proxy.js` con las siguientes instrucciones:
 
 ~~~javascript
 // Define initial data
 const initialData = {
-  username: 'Carlos'
+  username: ''
 }
 ~~~
 
-En la primera instruccion que definimos el objeto global, la aplicacion entenderia que la llave - en este caso seria `username` - tambien seria el valor de referencia clave para los atributos que usaremos para actualizar los datos en ejecucion.
+En la primera instrucción que definimos el objeto global, la aplicación entendería que la llave - en este caso seria `username` - también sería el valor de referencia clave para los atributos que usaremos para actualizar los datos en ejecución.
 
-Despues de definir nuestro estado inicial, procedemos a implementar nuestra funcion que usara `Proxy` para la observacion del estado inicial, esta funcion la llamaremos `reactMin`
+Después de definir nuestro estado inicial, procedemos a implementar nuestra función que usara `Proxy` para la observación del estado inicial, esta función la llamaremos `reactMin`
 
 ~~~javascript
 // Define proxy function
@@ -153,7 +153,75 @@ function reactMin(data) {
 ~~~
 
 Este codigo se ha definido los siguientes bloques:
-- `handler`: Este contiene todos los metodos que la API de **Proxy** soporta actualmente. Este caso demasiado puntual solo usaremos el metodo `set` para observar si la propiedad tendra un cambio "en camino" para poder alterarlo a que tambien modifique los **atributos en el HTML** con el nombre del campo existente
-- `proxy`: Esta variable crea la instancia relacionada a la API de **Proxy** solo recibiendo el objeto el cual será observado y el segundo parametro seria el `handler`
-- `setDataEvents`: Este ultimo va a generar solo los **inputs** del HTML que contengan el valor de alguno de los campos observados en el proxy - que en nuestro caso solo será `username`
+- `handler`: Este contiene todos los metodos que la API de **Proxy** soporta actualmente. Este caso demasiado puntual solo usaremos el metodo `set` para observar si la propiedad tendra un cambio "en camino" para poder alterarlo a que tambien modifique los **atributos en el HTML** con el nombre del campo existente.
+- `proxy`: Esta variable crea la instancia relacionada a la API de **Proxy** solo recibiendo el objeto el cual será observado y el segundo parametro seria el `handler`.
+- `setDataEvents`: Este ultimo va a generar solo los **inputs** del HTML que contengan el valor de alguno de los campos observados en el proxy - que en nuestro caso solo será `username`.
 
+~~~javascript
+const app = reactMin(initialData)
+~~~
+
+Por ultimo, creamos nuestro proxy apuntando al objeto inicial - que en este caso se llama `initialData` - para proceder en hacer cambios a futuro.
+
+> Hemos notado tambien que usamos una clase llamada `Reflect`, hereda todas las acciones de **Proxy** que en resumen es una trampa para que el cambio sea mas efectivo a la hora de hacer una actualizacion para el proxy -el proxy siempre tenga en cuenta esas acciones
+
+~~~javascript
+// Regular
+Reflect.set(obj, key, value)
+
+// Es lo mismo que...
+obj[key] = value
+~~~
+
+Si deseas saber mas sobre esta clase, [aqui](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Reflect) puedes encontrar mas info sobre ella.
+
+## Resultado Final
+
+<!-- video line -->
+<figure class="videoContainer">
+  <video loop autoplay muted>
+    <source src="/video/demo_proxy.mp4" type="video/mp4">
+  </video>
+</figure>
+<!-- video line -->
+
+### Extra
+
+Tambien podemos cambiar el valor de nuestro campo `username` haciendo en momento de ejecucion, como por ejemplo insertar el valor de la respuesta de una peticion y tambien operaciones **asincronas**:
+
+~~~javascript
+function getAsyncName(id = 1) {
+  return fetch(`https://<hostname>/fake/users/${id}`)
+         .then(response => response.json())
+}
+
+// ...
+
+// Recordemos que tenemos una variable llamada `app`
+const app = reactMin(initialData)
+
+// Realizamos una operacion asincrona
+(async () => {
+  app.username = 'Loading...'
+  const { name } = await getAsyncName(2)
+  app.username = name
+})()
+~~~
+
+El resultado seria el siguiente:
+
+<!-- video line -->
+<figure class="videoContainer">
+  <video loop autoplay muted>
+    <source src="/video/demo_proxy_async.mp4" type="video/mp4">
+  </video>
+</figure>
+<!-- video line -->
+
+## Conclusión
+
+Logramos entender un poco el propósito básico y abstracto de que son los proxys, y su utilidad a la hora de generar observadores para generar acciones para `X` propiedad.
+
+También es importante entender de que en esto ha sido inspirado muchas librerias y frameworks reactivos, con el propósito de generar una acción/efecto en todos las variables que esperan ser cambiadas, aun así podemos ser reactivos fuera de estas tecnologías, y evaluar nuestros propios métodos.
+
+Espero que haya sido de mucha ayuda, 🤘🏽.

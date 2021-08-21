@@ -30,7 +30,7 @@ body {
 
 hr {
   border: 1px dashed #A599E9;
-  margin: 2rem 0rem 2rem;
+  margin: 2rem 0rem 1rem;
 }
 
 a {
@@ -56,11 +56,11 @@ img {
 code {
   background-color: rgba(172, 101, 255, 0.1);
   display: inline-block;
-  font-weight: 400;
+  font-weight: 500;
   padding: 0.2rem 0.3rem;
   font-size: 0.9rem;
   margin: 0rem 0.1rem 0rem;
-  font-family: "Fira Code";
+  font-family: "Source Code Pro";
   border-radius: 5px;
 }
 
@@ -73,4 +73,22 @@ blockquote {
   border-radius: 5px;
   background-color: rgba(172, 101, 255, 0.1);
   font-style: oblique;
+}
+
+::selection {
+  background-color: indigo;
+}
+
+::-moz-selection {
+  background-color: indigo;
+}
+
+.videoContainer {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.videoContainer video {
+  width: 100%;
+  border-radius: 5px;
 }

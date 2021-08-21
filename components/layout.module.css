@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 6rem 0rem 5rem;
+    margin: 6rem 0rem 2rem;
 }
 
 .headerimage {
@@ -38,4 +38,15 @@
     border-radius: 99999px;
     overflow: hidden;
     height: 250px;
+}
+
+.headPost {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.headPost a:hover {
+    text-decoration: unset;
+    color: gray;
 }

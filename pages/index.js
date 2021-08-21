@@ -16,22 +16,19 @@ export default function Home({ allPostsData, allTalksData }) {
       </Head>
       <section className={utilStyles.headingMd}>
         <p>
-          ¡Hola a todos! 🙌
+          ¡Hola a todos! 🦇
         </p>
         <p>
           Mi nombre es Carlos, soy Ingeniero de Sistemas <code>(Frontend Developer)</code>, a lo que programo todo el día y en las noches le dedico tiempo a ser más amigable con <strong>UI/UX </strong>
            y el <strong>medio ambiente</strong>.
         </p>
         <p>
-          Gran aficionado de HP Lovecraft, escribo una que otra poesía  en el camino, puedes contactarme en <a href="https://github.com/clouby">/github</a> o <a href="http://twitter.com/cloubyy">/twitter</a>
-        </p>
-        <p>
-          ¡Un gusto!
+          Gran aficionado de HP Lovecraft, escribo una que otra poesía  en el camino, puedes contactarme en <a href="https://github.com/clouby" target="_blank">/github</a> o <a href="http://twitter.com/cloubyy" target="_blank">/twitter</a>
         </p>
       </section>
       <hr />
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingTitle}>_Blog_</h2>
+      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`} id="blog">
+        <h2 className={utilStyles.headingTitle} id="blog-title">_Blog_</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title, time }) => (
             <li className={utilStyles.listItem} key={id}>
@@ -48,7 +45,7 @@ export default function Home({ allPostsData, allTalksData }) {
         </ul>
       </section>
       <hr />
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`} id="tech-talks">
         <h2 className={utilStyles.headingTitle}>_Talks_</h2>
         <div>
           <ul className={utilStyles.list}>
