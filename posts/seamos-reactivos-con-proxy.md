@@ -1,7 +1,7 @@
 ---
 title: '🔮 - Seamos reactivos con Proxy'
 date: '2021-08-05'
-published: false
+published: true
 ---
 
 Hace pocos días estuve investigando un poco sobre **VueJS**, ya que soy un completo principiante con este interesante framework del cliente, pero en mi pronta investigación, encontré que lanzaron la nueva versión de esta tecnología que sería la **versión 3**, que actualmente ya se encuentra pública y estable.
