@@ -23,7 +23,7 @@ export default function Home({ allPostsData, allTalksData }) {
            y el <strong>medio ambiente</strong>.
         </p>
         <p>
-          Gran aficionado de HP Lovecraft, escribo una que otra poesía  en el camino, puedes contactarme en <a href="https://github.com/clouby" target="_blank">/github</a> o <a href="http://twitter.com/cloubyy" target="_blank">/twitter</a>
+          Gran aficionado de HP Lovecraft, escribo una que otra poesía  en el camino, puedes contactarme en <a href="https://github.com/clouby" target="_blank" rel="noreferrer">/github</a> o <a href="http://twitter.com/cloubyy" target="_blank" rel="noreferrer">/twitter</a>
         </p>
       </section>
       <hr />

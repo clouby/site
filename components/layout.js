@@ -62,12 +62,12 @@ export default function Layout({ children, home }) {
                         ) : (
                             <>
                                 <div className={`${utilStyles.heading2Xl} ${styles.headPost}`}>
-                                    <Link href="/#blog">
+                                    <Link href="/#blog" rel="noreferrer">
                                         <a className={`${utilStyles.colorInherit} ${styles.nick}`} title="Back to Blog">
                                             <ArrowLeftIcon size={48}/>
                                         </a>
                                     </Link>
-                                    <Link href="/">
+                                    <Link href="/" rel="noreferrer">
                                         <a className={`${utilStyles.colorInherit} ${styles.nick}`} title="Home">
                                             ▲
                                         </a>
@@ -81,8 +81,8 @@ export default function Layout({ children, home }) {
             <Footer>
                 <ul>
                     <li><Link href="/">Home</Link></li>
-                    <li><a href="https://github.com/clouby" target="_blank">GitHub</a></li>
-                    <li><a href="http://twitter.com/cloubyy" target="_blank">Twitter</a></li>
+                    <li><a href="https://github.com/clouby" target="_blank" rel="noreferrer">GitHub</a></li>
+                    <li><a href="http://twitter.com/cloubyy" target="_blank" rel="noreferrer">Twitter</a></li>
                     <li><Link href="/#blog" >Blog</Link></li>
                 </ul>
             </Footer>

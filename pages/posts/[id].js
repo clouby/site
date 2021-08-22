@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 
 import Layout from "../../components/layout";
 import Date from "../../components/date"
@@ -26,10 +27,11 @@ export default function Post({ postData }) {
                     <Date dateString={postData.date} />
                     <span> · {postData.time.text}</span>
                 </div>
-                <span className={`${cardStyles.avatarTitle} ${utilStyles.lightText}`} style={{ margin: '1rem 0rem' }}> -
-                    <img src="/images/profile_2.jpg" />
-                    Carlos López
-                </span>
+                <div className={`${cardStyles.avatarTitle} ${utilStyles.lightText}`} style={{ margin: '1rem 0rem' }}>
+                    <span>-</span>
+                    <Image width="30" height="30" src="/images/profile_2.jpg" alt="Avatar" />
+                    <span>Carlos López</span>
+                </div>
                 <div className={`${utilStyles.fontPost} ${utilStyles.spaceList}`} dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
             </article>
         </Layout>

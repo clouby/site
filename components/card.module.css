@@ -33,9 +33,10 @@
 }
 
 .avatarTitle img {
-  width: 1.7rem;
-  height: 1.7rem;
-  display: inline-block;
   border-radius: 9999px;
-  margin: 0rem 0.5rem;
+}
+
+.avatarTitle span {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
