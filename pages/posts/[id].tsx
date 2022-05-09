@@ -4,13 +4,14 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { getMDXComponent } from 'mdx-bundler/client'
 
-import Layout, { name } from '@/components/layout'
+import Layout from '@/components/layout'
 import Date from '@/components/date'
 import { getAllPostIds, getPostData } from '@/lib/posts'
 import { getPostDataMDX } from '@/lib/mdx'
 
 import utilStyles from '../../styles/utils.module.css'
 import cardStyles from '../../components/card.module.css'
+import me from '@/data/me'
 
 export default function Post({ postData, code }) {
   const Component = useMemo(() => getMDXComponent(code), [code])
@@ -43,7 +44,7 @@ export default function Post({ postData, code }) {
             src="/images/profile.jpeg"
             alt="Avatar"
           />
-          <span>{name}</span>
+          <span>{me.name}</span>
         </div>
         <div className={`${utilStyles.fontPost} ${utilStyles.spaceList}`}>
           <Component />
