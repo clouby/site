@@ -4,7 +4,6 @@
   font-weight: 800;
   letter-spacing: -0.1rem;
   margin: 0.7rem 0;
-  font-family: Fira Code;
   text-align: center;
 }
 
@@ -23,13 +22,13 @@
   font-weight: 900;
 }
 
-.fontPost p, .fontPost li {
+.fontPost p,
+.fontPost li {
   word-spacing: 3px;
-  font-family: 'Roboto';
   line-height: 1.6;
 }
 
-.spaceList ul > li{
+.spaceList ul > li {
   margin: 0.3rem 0rem;
 }
 
@@ -70,8 +69,4 @@
 .listItem {
   margin: 0 0 0.5rem;
   padding: 0.7rem;
-}
-
-.lightText {
-  font-family: Roboto;
 }
