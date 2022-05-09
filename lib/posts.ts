@@ -54,13 +54,7 @@ export function getPostsSortedData() {
     }
   })
 
-  return allPostsData.filter(isPostPublished).sort((a, b) => {
-    if (a.date < b.date) {
-      return 1
-    } else {
-      return -1
-    }
-  })
+  return allPostsData.filter(isPostPublished).sort()
 }
 
 export function getAllPostIds() {

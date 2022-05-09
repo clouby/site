@@ -1,15 +1,20 @@
+import { useMemo } from 'react'
+
 import Head from 'next/head'
 import Image from 'next/image'
+import { getMDXComponent } from 'mdx-bundler/client'
 
-import Layout from '../../components/layout'
-import Date from '../../components/date'
-import { getAllPostIds, getPostData } from '../../lib/posts'
+import Layout, { name } from '@/components/layout'
+import Date from '@/components/date'
+import { getAllPostIds, getPostData } from '@/lib/posts'
+import { getPostDataMDX } from '@/lib/mdx'
 
 import utilStyles from '../../styles/utils.module.css'
 import cardStyles from '../../components/card.module.css'
-import { getPostDataMDX } from '@/lib/mdx'
 
-export default function Post({ postData }) {
+export default function Post({ postData, code }) {
+  const Component = useMemo(() => getMDXComponent(code), [code])
+
   return (
     <Layout>
       <Head>
@@ -38,12 +43,11 @@ export default function Post({ postData }) {
             src="/images/profile.jpeg"
             alt="Avatar"
           />
-          <span>Carlos López</span>
+          <span>{name}</span>
         </div>
-        <div
-          className={`${utilStyles.fontPost} ${utilStyles.spaceList}`}
-          dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
-        />
+        <div className={`${utilStyles.fontPost} ${utilStyles.spaceList}`}>
+          <Component />
+        </div>
       </article>
     </Layout>
   )
@@ -59,11 +63,14 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id)
-  const postDataMDX = await getPostDataMDX(params.id)
+  const { frontmatter, code, id } = await getPostDataMDX(params.id)
 
   return {
     props: {
       postData,
+      frontmatter,
+      code,
+      id,
     },
   }
 }

@@ -1,16 +1,18 @@
 import Link from 'next/link'
 import Head from 'next/head'
-import Image from 'next/image'
 
-import { ArrowLeftIcon } from '@primer/octicons-react'
+import { styled } from '@/styles/stitches.config'
+import me from '@/data/me'
+
 import Footer from './footer'
 
-import styles from './layout.module.css'
-import utilStyles from '../styles/utils.module.css'
+export const siteTitle = `${me.name} - Developer`
 
-export const name = 'Carlos López'
-export const nickname = 'clouby'
-export const siteTitle = `${nickname} - Front-end Developer`
+const Container = styled('div', {
+  maxWidth: '46rem',
+  padding: '0 1rem',
+  margin: '25rem auto',
+})
 
 export default function Layout({
   children,
@@ -20,12 +22,12 @@ export default function Layout({
   home?: boolean
 }) {
   return (
-    <div className={styles.container}>
+    <Container>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Personal Website - Tech Posts &amp; Personal Experiences"
+          content="Welcome to my personal website - write posts &amp; personal experiences"
         />
         <meta charSet="utf-8" />
         <meta
@@ -41,49 +43,6 @@ export default function Layout({
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
-        {home ? (
-          <>
-            <div className={styles.mainAvatar}>
-              <Image
-                src="/images/profile.jpeg"
-                alt="Picture Profile"
-                layout="intrinsic"
-                height="250"
-                width="250"
-                placeholder="blur"
-                blurDataURL="/images/blur.png"
-              />
-            </div>
-            <h1 className={utilStyles.heading2Xl}>
-              {name}
-              <b className={`${styles.nick} ${styles.spaceDot}`}>·</b>
-              <span className={styles.nick}>({nickname})</span>
-            </h1>
-          </>
-        ) : (
-          <>
-            <div className={`${utilStyles.heading2Xl} ${styles.headPost}`}>
-              <Link href="/#blog" rel="noreferrer">
-                <a
-                  className={`${utilStyles.colorInherit} ${styles.nick}`}
-                  title="Back to Blog"
-                >
-                  <ArrowLeftIcon size={48} />
-                </a>
-              </Link>
-              <Link href="/" rel="noreferrer">
-                <a
-                  className={`${utilStyles.colorInherit} ${styles.nick}`}
-                  title="Home"
-                >
-                  ▲
-                </a>
-              </Link>
-            </div>
-          </>
-        )}
-      </header>
       <main>{children}</main>
       <Footer>
         <ul>
@@ -109,10 +68,10 @@ export default function Layout({
             </a>
           </li>
           <li>
-            <Link href="/#blog">Blog</Link>
+            <Link href="#blog">Blog</Link>
           </li>
         </ul>
       </Footer>
-    </div>
+    </Container>
   )
 }

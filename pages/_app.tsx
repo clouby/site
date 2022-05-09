@@ -1,14 +1,34 @@
-import ThemeProvider from '../context/theme'
-import Header from '../components/header'
-import '../styles/global.css'
+import Header from '@/components/header'
+
+import { globalCss } from '@/styles/stitches.config'
+
+const globalStyles = globalCss({
+  '*': {
+    margin: 0,
+    padding: 0,
+    fontFamily: '$inconsolata',
+    lineHeight: '1rem',
+  },
+  body: {
+    backgroundColor: '$slate1',
+    color: '$slate10',
+    padding: '5rem 1.5rem 1.5rem',
+  },
+  p: {
+    fontSize: '$1',
+    lineHeight: '$2',
+  },
+  '::selection': {
+    backgroundColor: '$mauve12',
+  },
+})
 
 export default function App({ Component, pageProps }) {
   return (
-    <div>
-      <ThemeProvider>
-        <Header />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </div>
+    <>
+      {globalStyles()}
+      <Header />
+      <Component {...pageProps} />
+    </>
   )
 }

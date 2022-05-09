@@ -4,7 +4,7 @@ const me: Author = {
   name: 'Carlos López',
   username: 'clouby',
   avatar: './images/profile.jpeg',
-  about: 'soon...',
+  role: 'Developer',
 }
 
 export default me

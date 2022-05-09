@@ -17,7 +17,7 @@ export const blogDirectory = path.join(dataDirectory, 'blog')
 export async function getPostDataMDX(id) {
   const source = fs.readFileSync(path.join(blogDirectory, `${id}.mdx`), 'utf8')
 
-  const { frontmatter, code } = await bundleMDX({
+  let { frontmatter, code } = await bundleMDX({
     source,
     mdxOptions(options, _frontmatter) {
       options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkSlug]
@@ -32,7 +32,11 @@ export async function getPostDataMDX(id) {
   })
 
   return {
-    frontmatter,
+    frontmatter: {
+      wordCount: code.split(/s+/g).length,
+      readingTime: readingTime(code),
+      ...(frontmatter as Frontmatter),
+    },
     code,
     id,
   }

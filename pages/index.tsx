@@ -1,12 +1,11 @@
-import Head from "next/head";
-import Link from "next/link";
+import Head from 'next/head'
 
-import { getPostsSortedData } from "../lib/posts"
-import { getTalks } from "../lib/talks"
-import Layout, { siteTitle } from "../components/layout";
-import Date from "../components/date";
-import Card from "../components/card"
-import utilStyles from "../styles/utils.module.css";
+import { getPostsSortedData } from '../lib/posts'
+import { getTalks } from '../lib/talks'
+import Layout, { siteTitle } from '../components/layout'
+import utilStyles from '../styles/utils.module.css'
+import { Link, p } from '@/styles'
+import me from '@/data/me'
 
 export default function Home({ allPostsData, allTalksData }) {
   return (
@@ -15,19 +14,36 @@ export default function Home({ allPostsData, allTalksData }) {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>
-          ¡Hola a todos! 🦇
+        <p className={p({ variant: 'title' })}>
+          {me.name}. {me.role} and writer.
         </p>
-        <p>
-          Mi nombre es Carlos, soy Ingeniero de Sistemas <code>(Frontend Developer)</code>, a lo que programo todo el día y en las noches le dedico tiempo a ser más amigable con <strong>UI/UX </strong>
-           y el <strong>medio ambiente</strong>.
+        <p className={p({ variant: 'content' })}>
+          Hi, I&apos;m 27 years old, Systems Engineer (focused Mobile/Frontend
+          Development), which I program all day and at night I dedicate time to
+          being more friendly with <strong>UX</strong> and{' '}
+          <strong>generative coding</strong>.
         </p>
-        <p>
-          Gran aficionado de Lovecraft, escribo una que otra poesía  en el camino, puedes contactarme en <a href="https://github.com/clouby" target="_blank" rel="noreferrer">/github</a> o <a href="http://twitter.com/cloubyy" target="_blank" rel="noreferrer">/twitter</a>
+        <p className={p({ variant: 'content' })}>
+          Some days write some <Link href="#">posts</Link>,the one or another{' '}
+          <Link href="#">poetry</Link> in the way, you can contact me{' '}
+          <Link
+            href="https://github.com/clouby"
+            target="_blank"
+            rel="noreferrer"
+          >
+            /github
+          </Link>{' '}
+          o{' '}
+          <Link
+            href="http://twitter.com/cloubyy"
+            target="_blank"
+            rel="noreferrer"
+          >
+            /twitter
+          </Link>
         </p>
       </section>
-      <hr />
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`} id="blog">
+      {/* <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`} id="blog">
         <h2 className={utilStyles.headingTitle} id="blog-title">_Blog_</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title, time }) => (
@@ -43,9 +59,8 @@ export default function Home({ allPostsData, allTalksData }) {
             </li>
           ))}
         </ul>
-      </section>
-      <hr />
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`} id="tech-talks">
+      </section> */}
+      {/* <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`} id="tech-talks">
         <h2 className={utilStyles.headingTitle}>_Talks_</h2>
         <div>
           <ul className={utilStyles.list}>
@@ -56,19 +71,19 @@ export default function Home({ allPostsData, allTalksData }) {
             ))}
           </ul>
         </div>
-      </section>
+      </section> */}
     </Layout>
-  );
+  )
 }
 
 export function getStaticProps() {
-  const allPostsData = getPostsSortedData();
-  const allTalksData = getTalks();
+  const allPostsData = getPostsSortedData()
+  const allTalksData = getTalks()
 
   return {
     props: {
       allPostsData,
-      allTalksData
-    }
-  };
+      allTalksData,
+    },
+  }
 }

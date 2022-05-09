@@ -1,5 +1,5 @@
 // https://github.com/PrismJS/prism/blob/master/plugins/diff-highlight/prism-diff-highlight.js
-export default function (Prism) {
+export default function highlightDiff(Prism) {
   var LANGUAGE_REGEX = /diff-([\w-]+)/i
   var HTML_TAG = /<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/gi
   //this will match a line plus the line break while ignoring the line breaks HTML tags may contain.

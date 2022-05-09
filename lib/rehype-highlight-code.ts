@@ -7,11 +7,7 @@ import refractor from 'refractor'
 import highlightLine from '@/lib/rehype-highlight-line'
 import highlightWord from '@/lib/rehype-highlight-word'
 
-export default function (options = {}) {
-  return (tree) => {
-    visit(tree, 'element', visitor)
-  }
-
+export default function highlightCode(options = {}) {
   function visitor(node, index, parent) {
     if (
       !parent ||
@@ -32,5 +28,10 @@ export default function (options = {}) {
     result = highlightWord(result)
 
     node.children = result
+    node.children = result
+  }
+
+  return (tree) => {
+    visit(tree, 'element', visitor)
   }
 }
