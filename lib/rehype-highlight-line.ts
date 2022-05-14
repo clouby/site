@@ -3,7 +3,7 @@ import { toHtml as hastToHtml } from 'hast-util-to-html'
 import { unified } from 'unified'
 import parse from 'rehype-parse'
 
-const lineNumberify = function lineNumberify(ast, lineNum = 1) {
+function lineNumberify(ast, lineNum = 1) {
   let lineNumber = lineNum
   return ast.reduce(
     (result, node) => {

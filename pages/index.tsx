@@ -1,13 +1,10 @@
 import Head from 'next/head'
-
-import { getPostsSortedData } from '../lib/posts'
-import { getTalks } from '../lib/talks'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import { Link, p } from '@/styles'
 import me from '@/data/me'
 
-export default function Home({ allPostsData, allTalksData }) {
+export default function Home(_props) {
   return (
     <Layout home>
       <Head>
@@ -77,8 +74,8 @@ export default function Home({ allPostsData, allTalksData }) {
 }
 
 export function getStaticProps() {
-  const allPostsData = getPostsSortedData()
-  const allTalksData = getTalks()
+  const allPostsData = []
+  const allTalksData = []
 
   return {
     props: {

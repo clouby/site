@@ -3,7 +3,7 @@
 import rangeParser from 'parse-numeric-range'
 import { visit } from 'unist-util-visit'
 import { toHtml as nodeToString } from 'hast-util-to-html'
-import refractor from 'refractor'
+import { refractor } from 'refractor'
 import highlightLine from '@/lib/rehype-highlight-line'
 import highlightWord from '@/lib/rehype-highlight-word'
 
@@ -23,12 +23,11 @@ export default function highlightCode(options = {}) {
     let result = refractor.highlight(codeString, lang)
 
     const linesToHighlight = rangeParser(node.properties.line || '0')
-    result = highlightLine(result, linesToHighlight)
+    const line = highlightLine(result, linesToHighlight)
 
-    result = highlightWord(result)
+    const words = highlightWord(line)
 
-    node.children = result
-    node.children = result
+    node.children = words
   }
 
   return (tree) => {
