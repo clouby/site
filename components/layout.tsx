@@ -1,17 +1,17 @@
-import Link from 'next/link'
 import Head from 'next/head'
 
 import { styled } from '@/styles/stitches.config'
 import me from '@/data/me'
 
 import Footer from './footer'
+import { List, Link } from '@/styles'
 
-export const siteTitle = `${me.name} - Developer`
+export const siteTitle = `${me.name} - Software Engineer`
 
 const Container = styled('div', {
   maxWidth: '46rem',
   padding: '0 1rem',
-  margin: '25rem auto',
+  margin: '15rem auto auto',
 })
 
 export default function Layout({
@@ -45,32 +45,32 @@ export default function Layout({
       </Head>
       <main>{children}</main>
       <Footer>
-        <ul>
+        <List>
           <li>
             <Link href="/">Home</Link>
           </li>
           <li>
-            <a
+            <Link
               href="https://github.com/clouby"
               target="_blank"
               rel="noreferrer"
             >
               GitHub
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="http://twitter.com/cloubyy"
               target="_blank"
               rel="noreferrer"
             >
               Twitter
-            </a>
+            </Link>
           </li>
           <li>
             <Link href="#blog">Blog</Link>
           </li>
-        </ul>
+        </List>
       </Footer>
     </Container>
   )

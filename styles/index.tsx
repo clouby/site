@@ -18,7 +18,7 @@ export const Link = styled('a', {
   color: '$mauve7',
   textUnderlinePosition: 'under',
 
-  '&:hover': {
+  '&:hover, &:visited': {
     color: '$mauve8',
   },
   '&:active': {
@@ -26,16 +26,34 @@ export const Link = styled('a', {
   },
 })
 
+export const List = styled('ul', {
+  display: 'flex',
+  listStyle: 'decimal-leading-zero',
+  justifyContent: 'flex-end',
+  flexDirection: 'column',
+  alignItems: 'end',
+  '& > li' : {
+    flexBasis: '2em'
+  }
+}) 
+
 export const p = css({
   variants: {
     variant: {
       title: {
-        margin: '$2 0px',
+        margin: '$4 0',
         fontWeight: '$6',
+        fontSize: '$2',
+        lineHeight: '$1'
       },
       content: {
         margin: '$1 0px',
+        fontSize: '$1'
       },
     },
   },
+})
+
+export const footer = css({
+  margin: '$4 auto auto'
 })

@@ -1,22 +1,31 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
 import { Link, p } from '@/styles'
 import me from '@/data/me'
+import Image from 'next/image'
+import Footer from '@/components/footer'
 
 export default function Home(_props) {
+
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
-        <p className={p({ variant: 'title' })}>
+      <section>
+        <Image
+          src={me.avatar.src}
+          width={me.avatar.width}
+          height={me.avatar.height}
+          alt="Picture about me"
+          priority={me.avatar.priority}
+        />
+        <h1 className={p({ variant: 'title' })}>
           {me.name}. {me.role} and writer.
-        </p>
+        </h1>
         <p className={p({ variant: 'content' })}>
-          Hi, I&apos;m 27 years old, Systems Engineer (focused Mobile/Frontend
-          Development), which I program all day and at night I dedicate time to
+          Hi, I&apos;m Software Engineer (focused Mobile/Front-end
+          Development), which I program all day and at night I try to focus time about
           being more friendly with <strong>UX</strong> and{' '}
           <strong>generative coding</strong>.
         </p>
@@ -30,7 +39,7 @@ export default function Home(_props) {
           >
             /github
           </Link>{' '}
-          o{' '}
+          or {' '}
           <Link
             href="http://twitter.com/cloubyy"
             target="_blank"
@@ -40,35 +49,6 @@ export default function Home(_props) {
           </Link>
         </p>
       </section>
-      {/* <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`} id="blog">
-        <h2 className={utilStyles.headingTitle} id="blog-title">_Blog_</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title, time }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href="/posts/[id]" as={`/posts/${id}`}>
-                <a className={`${utilStyles.headingLg} ${utilStyles.bold}`}>{title}</a>
-              </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-                <span> · {time.text}</span>
-              </small>
-            </li>
-          ))}
-        </ul>
-      </section> */}
-      {/* <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`} id="tech-talks">
-        <h2 className={utilStyles.headingTitle}>_Talks_</h2>
-        <div>
-          <ul className={utilStyles.list}>
-            {allTalksData.map((talk, index) => (
-              <li key={`talk_${index}`}>
-                <Card {...talk} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section> */}
     </Layout>
   )
 }

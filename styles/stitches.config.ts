@@ -24,9 +24,11 @@ export const {
       1: '1rem',
       2: '2rem',
       3: '2.5rem',
+      4: '3.5rem'
     },
     fontSizes: {
-      1: '17px',
+      1: '1.1em',
+      2: '2em'
     },
     fontWeights: {
       1: '100',

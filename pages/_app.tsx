@@ -12,7 +12,7 @@ const globalStyles = globalCss({
   body: {
     backgroundColor: '$slate1',
     color: '$slate10',
-    padding: '5rem 1.5rem 1.5rem',
+    padding: '1rem 1.5rem 1.5rem',
   },
   p: {
     fontSize: '$1',
