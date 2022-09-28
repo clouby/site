@@ -28,9 +28,9 @@ export default function Post({ post: { frontmatter, code } }) {
   const Component = useMemo(() => getMDXComponent(code), [code])
 
   return (
-      <>
-        <h1 className={p({ variant: 'title' })}>{frontmatter.title}</h1>
-        <Component/>
-      </>
+    <>
+      <h1 className={p({ variant: 'title' })}>{frontmatter.title}</h1>
+      <Component/>
+    </>
   )
 }

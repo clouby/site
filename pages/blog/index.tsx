@@ -4,11 +4,10 @@ import { List, p } from "@/styles"
 
 type Props = {
     children: JSX.Element,
-    postIds: Array<{params: { id: string, path: string }}>,
-    test: any
+    postIds: Array<{params: { id: string, path: string }}>
 }
 
-export default function Blog({ postIds, test }: Props) {
+export default function Blog({ postIds }: Props) {
   return (
       <>
         <h2 className={p({ variant: 'title' })}>
@@ -29,13 +28,10 @@ export default function Blog({ postIds, test }: Props) {
 
 export async function getStaticProps() {
     const postIds = await getAllPostIds()
-    const test = await getPostDataMDX('buffers-node-js')
-
 
     return {
         props: {
-            postIds,
-            test
+            postIds
         }
     }
 }
