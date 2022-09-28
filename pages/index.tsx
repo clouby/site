@@ -1,14 +1,15 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
-import { Link, p } from '@/styles'
-import me from '@/data/me'
 import Image from 'next/image'
-import Footer from '@/components/footer'
+import NextLink from 'next/link'
 
-export default function Home(_props) {
+import { siteTitle } from '@/components/layout'
+import Link from '@/components/link'
+import { p } from '@/styles'
+import me from '@/data/me'
 
+export default function Home() {
   return (
-    <Layout home>
+    <>
       <Head>
         <title>{siteTitle}</title>
       </Head>
@@ -21,8 +22,11 @@ export default function Home(_props) {
           priority={me.avatar.priority}
         />
         <h1 className={p({ variant: 'title' })}>
-          {me.name}. {me.role} and writer.
+          {me.name}. 
         </h1>
+        <h2 className={p({ variant: 'subtitle' })}>
+          {me.role} and writer.
+        </h2>
         <p className={p({ variant: 'content' })}>
           Hi, I&apos;m Software Engineer (focused Mobile/Front-end
           Development), which I program all day and at night I try to focus time about
@@ -30,26 +34,22 @@ export default function Home(_props) {
           <strong>generative coding</strong>.
         </p>
         <p className={p({ variant: 'content' })}>
-          Some days write some <Link href="#">posts</Link>,the one or another{' '}
+          Some days write some <Link href="/blog">posts</Link>,the one or another{' '}
           <Link href="#">poetry</Link> in the way, you can contact me{' '}
           <Link
             href="https://github.com/clouby"
-            target="_blank"
-            rel="noreferrer"
-          >
+           >
             /github
           </Link>{' '}
           or {' '}
           <Link
             href="http://twitter.com/cloubyy"
-            target="_blank"
-            rel="noreferrer"
           >
             /twitter
           </Link>
         </p>
       </section>
-    </Layout>
+    </>
   )
 }
 

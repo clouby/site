@@ -1,5 +1,5 @@
 import { createStitches } from '@stitches/react'
-import { mauveDark, slateDark } from '@radix-ui/colors'
+import { mauveDark, grayDark } from '@radix-ui/colors'
 
 export const {
   styled,
@@ -14,7 +14,7 @@ export const {
   theme: {
     colors: {
       ...mauveDark,
-      ...slateDark,
+      ...grayDark
     },
     fonts: {
       inconsolata: 'Inconsolata, Droid Sans, Helvetica Neue, sans-serif',
@@ -24,11 +24,13 @@ export const {
       1: '1rem',
       2: '2rem',
       3: '2.5rem',
-      4: '3.5rem'
+      4: '3.5rem',
+      5: '4rem'
     },
     fontSizes: {
       1: '1.1em',
-      2: '2em'
+      2: '2em',
+      3: '1.5em'
     },
     fontWeights: {
       1: '100',
@@ -41,4 +43,9 @@ export const {
       2: '2.3rem',
     },
   },
+  media: {
+    sm: '(min-width: 640px)',
+    md: '(min-width: 768px)',
+    lg: '(min-width: 1024px)',
+  }
 })

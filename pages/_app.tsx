@@ -1,4 +1,5 @@
 import Header from '@/components/header'
+import Layout from '@/components/layout'
 
 import { globalCss } from '@/styles/stitches.config'
 
@@ -10,8 +11,8 @@ const globalStyles = globalCss({
     lineHeight: '1rem',
   },
   body: {
-    backgroundColor: '$slate1',
-    color: '$slate10',
+    backgroundColor: '$gray1',
+    color: '$gray10',
     padding: '1rem 1.5rem 1.5rem',
   },
   p: {
@@ -19,7 +20,7 @@ const globalStyles = globalCss({
     lineHeight: '$2',
   },
   '::selection': {
-    backgroundColor: '$mauve12',
+    backgroundColor: '$gray12',
   },
 })
 
@@ -28,7 +29,9 @@ export default function App({ Component, pageProps }) {
     <>
       {globalStyles()}
       <Header />
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   )
 }
