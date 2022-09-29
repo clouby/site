@@ -1,5 +1,4 @@
 import fs from 'fs'
-import fsPromise from 'fs/promises'
 import { cwd } from 'process'
 import path from 'path'
 import glob from 'glob'
@@ -43,8 +42,8 @@ export async function getPostDataMDX(id) {
   }
 }
 
-export async function getAllPostIds() {
-  const filenames = await fsPromise.readdir(blogDirectory) as string[]
+export  function getAllPostIds() {
+  const filenames = fs.readdirSync(blogDirectory) as string[]
   
   return filenames.map((filename) => {
     const pathname = filename.replace(/\.mdx$/, '')

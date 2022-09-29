@@ -6,7 +6,7 @@ import { getAllPostIds, getPostDataMDX } from '@/lib/mdx'
 import { p } from '@/styles'
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const postIds = await getAllPostIds()
+    const postIds = getAllPostIds()
 
     return {
         paths: postIds,

@@ -1,5 +1,5 @@
 import Link from "@/components/link"
-import { getAllPostIds, getPostDataMDX } from "@/lib/mdx"
+import { getAllPostIds } from "@/lib/mdx"
 import { List, p } from "@/styles"
 
 type Props = {
@@ -27,7 +27,7 @@ export default function Blog({ postIds }: Props) {
 }
 
 export async function getStaticProps() {
-    const postIds = await getAllPostIds()
+    const postIds = getAllPostIds()
 
     return {
         props: {
