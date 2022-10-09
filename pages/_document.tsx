@@ -16,7 +16,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
           <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/github-dark.min.css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/night-owl.min.css"
             rel="stylesheet"
           />
           <style
