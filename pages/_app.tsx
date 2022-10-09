@@ -1,34 +1,37 @@
-import Header from '@/components/header'
+import Header from "@/components/header";
+import Layout from "@/components/layout";
 
-import { globalCss } from '@/styles/stitches.config'
+import { globalCss } from "@/styles/stitches.config";
 
 const globalStyles = globalCss({
-  '*': {
+  "*": {
     margin: 0,
     padding: 0,
-    fontFamily: '$inconsolata',
-    lineHeight: '1rem',
+    fontFamily: "$inconsolata",
+    lineHeight: "1rem",
   },
   body: {
-    backgroundColor: '$slate1',
-    color: '$slate10',
-    padding: '5rem 1.5rem 1.5rem',
+    backgroundColor: "black",
+    color: "$gray10",
+    padding: "1rem 1.5rem 1.5rem",
   },
   p: {
-    fontSize: '$1',
-    lineHeight: '$2',
+    fontSize: "$1",
+    lineHeight: "$2",
   },
-  '::selection': {
-    backgroundColor: '$mauve12',
+  "::selection": {
+    backgroundColor: "$gray12",
   },
-})
+});
 
 export default function App({ Component, pageProps }) {
   return (
     <>
       {globalStyles()}
       <Header />
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
-  )
+  );
 }

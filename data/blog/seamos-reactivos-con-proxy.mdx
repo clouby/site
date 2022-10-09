@@ -177,25 +177,22 @@ Si deseas saber mas sobre esta clase, [aqui](https://developer.mozilla.org/es/do
 
 ## Resultado Final
 
-<!-- video line -->
 <figure class="videoContainer">
   <video loop autoplay muted>
-    <source src="/video/demo_proxy.mp4" type="video/mp4">
+    <source src="/video/demo_proxy.mp4" type="video/mp4"/>
   </video>
 </figure>
-<!-- video line -->
 
 ### Extra
 
 Tambien podemos cambiar el valor de nuestro campo `username` haciendo en momento de ejecucion, como por ejemplo insertar el valor de la respuesta de una peticion y tambien operaciones **asincronas**:
 
-~~~javascript
+```javascript
 function getAsyncName(id = 1) {
   return fetch(`https://<hostname>/fake/users/${id}`)
          .then(response => response.json())
 }
 
-// ...
 
 // Recordemos que tenemos una variable llamada `app`
 const app = reactMin(initialData)
@@ -210,13 +207,11 @@ const app = reactMin(initialData)
 
 El resultado seria el siguiente:
 
-<!-- video line -->
 <figure class="videoContainer">
   <video loop autoplay muted>
-    <source src="/video/demo_proxy_async.mp4" type="video/mp4">
+    <source src="/video/demo_proxy_async.mp4" type="video/mp4"/>
   </video>
 </figure>
-<!-- video line -->
 
 ## Conclusión
 

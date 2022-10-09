@@ -1,8 +1,12 @@
-import React from 'react'
-import styles from './footer.module.css'
+import React from "react";
+import { footer } from "@/styles";
 
-const Footer = (_props) => {
-  return <footer className={styles.outside}></footer>
-}
+type Props = {
+  children: JSX.Element;
+};
 
-export default Footer
+const Footer = ({ children }: Props) => {
+  return <footer className={footer()}>{children}</footer>;
+};
+
+export default Footer;

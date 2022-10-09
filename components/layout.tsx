@@ -1,25 +1,25 @@
-import Link from 'next/link'
-import Head from 'next/head'
+import Head from "next/head";
 
-import { styled } from '@/styles/stitches.config'
-import me from '@/data/me'
+import { styled } from "@/styles/stitches.config";
+import me from "@/data/me";
 
-import Footer from './footer'
+import Footer from "./footer";
+import { List, Link } from "@/styles";
 
-export const siteTitle = `${me.name} - Developer`
+export const siteTitle = `${me.name} - Software Engineer`;
 
-const Container = styled('div', {
-  maxWidth: '46rem',
-  padding: '0 1rem',
-  margin: '25rem auto',
-})
+const Container = styled("div", {
+  maxWidth: "46rem",
+  padding: "0 1rem",
+  margin: "15rem auto auto",
+});
 
 export default function Layout({
   children,
   home,
 }: {
-  children: any
-  home?: boolean
+  children: any;
+  home?: boolean;
 }) {
   return (
     <Container>
@@ -37,7 +37,7 @@ export default function Layout({
         <meta
           property="og:image"
           content={`https://og-image.now.sh/${encodeURI(
-            siteTitle,
+            siteTitle
           )}.png?theme=dark&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
         />
         <meta name="og:title" content={siteTitle} />
@@ -45,33 +45,33 @@ export default function Layout({
       </Head>
       <main>{children}</main>
       <Footer>
-        <ul>
+        <List type="footer">
           <li>
             <Link href="/">Home</Link>
           </li>
           <li>
-            <a
+            <Link
               href="https://github.com/clouby"
               target="_blank"
               rel="noreferrer"
             >
               GitHub
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="http://twitter.com/cloubyy"
               target="_blank"
               rel="noreferrer"
             >
               Twitter
-            </a>
+            </Link>
           </li>
           <li>
             <Link href="#blog">Blog</Link>
           </li>
-        </ul>
+        </List>
       </Footer>
     </Container>
-  )
+  );
 }
