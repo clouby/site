@@ -11,7 +11,7 @@ export const siteTitle = `${me.name} - Software Engineer`;
 const Container = styled("div", {
   maxWidth: "46rem",
   padding: "0 1rem",
-  margin: "15rem auto auto",
+  margin: "11rem auto auto",
 });
 
 export default function Layout({
