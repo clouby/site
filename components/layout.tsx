@@ -1,25 +1,25 @@
-import Head from 'next/head'
+import Head from "next/head";
 
-import { styled } from '@/styles/stitches.config'
-import me from '@/data/me'
+import { styled } from "@/styles/stitches.config";
+import me from "@/data/me";
 
-import Footer from './footer'
-import { List, Link } from '@/styles'
+import Footer from "./footer";
+import { List, Link } from "@/styles";
 
-export const siteTitle = `${me.name} - Software Engineer`
+export const siteTitle = `${me.name} - Software Engineer`;
 
-const Container = styled('div', {
-  maxWidth: '46rem',
-  padding: '0 1rem',
-  margin: '15rem auto auto',
-})
+const Container = styled("div", {
+  maxWidth: "46rem",
+  padding: "0 1rem",
+  margin: "15rem auto auto",
+});
 
 export default function Layout({
   children,
   home,
 }: {
-  children: any
-  home?: boolean
+  children: any;
+  home?: boolean;
 }) {
   return (
     <Container>
@@ -37,7 +37,7 @@ export default function Layout({
         <meta
           property="og:image"
           content={`https://og-image.now.sh/${encodeURI(
-            siteTitle,
+            siteTitle
           )}.png?theme=dark&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
         />
         <meta name="og:title" content={siteTitle} />
@@ -45,7 +45,7 @@ export default function Layout({
       </Head>
       <main>{children}</main>
       <Footer>
-        <List>
+        <List type="footer">
           <li>
             <Link href="/">Home</Link>
           </li>
@@ -73,5 +73,5 @@ export default function Layout({
         </List>
       </Footer>
     </Container>
-  )
+  );
 }
