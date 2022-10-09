@@ -1,37 +1,33 @@
-import Link from "@/components/link"
-import { getAllPostIds } from "@/lib/mdx"
-import { List, p } from "@/styles"
+import Link from "@/components/link";
+import { getAllPostIds } from "@/lib/mdx";
+import { List, p, ItemList } from "@/styles";
 
 type Props = {
-    children: JSX.Element,
-    postIds: Array<{params: { id: string, path: string }}>
-}
+  children: JSX.Element;
+  postIds: Array<{ params: { id: string; path: string } }>;
+};
 
 export default function Blog({ postIds }: Props) {
   return (
-      <>
-        <h2 className={p({ variant: 'title' })}>
-          Blog
-        </h2>
-        <List>
-          {postIds.map((post, index) => (
-            <li key={index}>
-              <Link href={post.params.path}>
-                {post.params.id}
-              </Link>
-            </li>
-          ))}
-        </List>
-      </>
-  )
+    <>
+      <h2 className={p({ variant: "title" })}>Blog</h2>
+      <List type="content">
+        {postIds.map((post, index) => (
+          <ItemList key={index} title="subheading">
+            <Link href={post.params.path}>{post.params.id}</Link>
+          </ItemList>
+        ))}
+      </List>
+    </>
+  );
 }
 
 export async function getStaticProps() {
-    const postIds = getAllPostIds()
+  const postIds = getAllPostIds();
 
-    return {
-        props: {
-            postIds
-        }
-    }
+  return {
+    props: {
+      postIds,
+    },
+  };
 }

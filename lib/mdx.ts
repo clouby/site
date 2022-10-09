@@ -1,35 +1,33 @@
-import fs from 'fs'
-import { cwd } from 'process'
-import path from 'path'
-import glob from 'glob'
-import matter from 'gray-matter'
-import readingTime from 'reading-time'
-import { bundleMDX } from 'mdx-bundler'
-import rehypeHighlightCode from '@/lib/rehype-highlight-code'
-import rehypeMetaAttribute from '@/lib/rehype-meta-attribute'
-import remarkSlug from 'remark-slug'
+import fs from "fs";
+import { cwd } from "process";
+import path from "path";
+import readingTime from "reading-time";
+import { bundleMDX } from "mdx-bundler";
+import rehypeHighlight from "rehype-highlight";
+import rehypeMetaAttribute from "@/lib/rehype-meta-attribute";
+import remarkSlug from "remark-slug";
 
-import type { Frontmatter } from '@/types/frontmatter'
+import type { Frontmatter } from "@/types/frontmatter";
 
-export const dataDirectory = path.join(cwd(), 'data')
-export const blogDirectory = path.join(dataDirectory, 'blog')
+export const dataDirectory = path.join(cwd(), "data");
+export const blogDirectory = path.join(dataDirectory, "blog");
 
 export async function getPostDataMDX(id) {
-  const source = fs.readFileSync(path.join(blogDirectory, `${id}.mdx`), 'utf8')
+  const source = fs.readFileSync(path.join(blogDirectory, `${id}.mdx`), "utf8");
 
   let { frontmatter, code } = await bundleMDX({
     source,
     mdxOptions(options, _frontmatter) {
-      options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkSlug]
+      options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkSlug];
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
+        rehypeHighlight,
         rehypeMetaAttribute,
-        rehypeHighlightCode,
-      ]
+      ];
 
-      return options
+      return options;
     },
-  })
+  });
 
   return {
     frontmatter: {
@@ -39,19 +37,19 @@ export async function getPostDataMDX(id) {
     },
     code,
     id,
-  }
+  };
 }
 
-export  function getAllPostIds() {
-  const filenames = fs.readdirSync(blogDirectory) as string[]
-  
+export function getAllPostIds() {
+  const filenames = fs.readdirSync(blogDirectory) as string[];
+
   return filenames.map((filename) => {
-    const pathname = filename.replace(/\.mdx$/, '')
+    const pathname = filename.replace(/\.mdx$/, "");
     return {
       params: {
         id: pathname,
-        path: `/blog/${pathname}`
+        path: `/blog/${pathname}`,
       },
-    }
-  })
+    };
+  });
 }
