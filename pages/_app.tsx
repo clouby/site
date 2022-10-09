@@ -1,28 +1,28 @@
-import Header from '@/components/header'
-import Layout from '@/components/layout'
+import Header from "@/components/header";
+import Layout from "@/components/layout";
 
-import { globalCss } from '@/styles/stitches.config'
+import { globalCss } from "@/styles/stitches.config";
 
 const globalStyles = globalCss({
-  '*': {
+  "*": {
     margin: 0,
     padding: 0,
-    fontFamily: '$inconsolata',
-    lineHeight: '1rem',
+    fontFamily: "$inconsolata",
+    lineHeight: "1rem",
   },
   body: {
-    backgroundColor: '$gray1',
-    color: '$gray10',
-    padding: '1rem 1.5rem 1.5rem',
+    backgroundColor: "black",
+    color: "$gray10",
+    padding: "1rem 1.5rem 1.5rem",
   },
   p: {
-    fontSize: '$1',
-    lineHeight: '$2',
+    fontSize: "$1",
+    lineHeight: "$2",
   },
-  '::selection': {
-    backgroundColor: '$gray12',
+  "::selection": {
+    backgroundColor: "$gray12",
   },
-})
+});
 
 export default function App({ Component, pageProps }) {
   return (
@@ -33,5 +33,5 @@ export default function App({ Component, pageProps }) {
         <Component {...pageProps} />
       </Layout>
     </>
-  )
+  );
 }
