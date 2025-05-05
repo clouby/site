@@ -2,8 +2,8 @@
 import BaseHead from "@/components/BaseHead.astro";
 
 interface Props {
-    title: string;
-    description: string;
+  title: string;
+  description: string;
 }
 
 const { title, description } = Astro.props;
@@ -11,13 +11,14 @@ const { title, description } = Astro.props;
 
 <!doctype html>
 <html
-    lang="en"
-    class="selection:bg-zinc-200 selection:text-zinc-900 dark:selection:bg-zinc-800 dark:selection:text-zinc-200"
+  lang="en"
+  data-theme="dark"
+  class="selection:bg-zinc-200 selection:text-zinc-900 dark:selection:bg-zinc-800 dark:selection:text-zinc-200"
 >
-    <head>
-        <BaseHead title={title} description={description} />
-    </head>
-    <body class="bg-white dark:bg-black">
-        <slot />
-    </body>
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body class="bg-white dark:bg-black">
+    <slot />
+  </body>
 </html>
