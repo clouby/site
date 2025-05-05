@@ -1,4 +1,4 @@
-# cloub personal website 🐙
+# personal website 🐙
 
 ## 🧞 Commands
 
