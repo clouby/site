@@ -12,9 +12,10 @@ const posts = (await getCollection("blog")).sort(
 <section>
   <Wrapper variant="base" class="py-12">
     <Typography
+      id="blog"
       tag="h3"
       variant="textBase"
-      class="font-semibold text-zinc-900 dark:text-zinc-200"
+      class="font-semibold text-zinc-900 dark:text-zinc-200 relative"
     >
       Blog
     </Typography>

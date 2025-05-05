@@ -11,7 +11,7 @@ export const SITE_BLOG_DESCRIPTION =
 export const WRAP_LINKS = {
   post: {
     name: "posts",
-    link: "/blog",
+    link: "#blog",
   },
   poetry: {
     name: "poetry",

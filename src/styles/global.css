@@ -2,3 +2,33 @@
 @plugin '@tailwindcss/typography';
 
 @import "./theme.config.css";
+
+@keyframes targetIndicator {
+  0% {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+}
+
+:target::before {
+  content: "\21B3";
+  position: absolute;
+  left: -1.3em;
+  animation: targetIndicator 1.5s ease-out infinite;
+}
+
+@media (prefers-reduced-motion) {
+  :target::before {
+    animation: none;
+  }
+}
