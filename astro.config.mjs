@@ -11,7 +11,7 @@ import vercel from "@astrojs/vercel";
 // https://astro.build/config
 export default defineConfig({
   redirects: {
-    "/blog": "/",
+    "/blog/": "/",
   },
 
   site: "https://cloub.dev",
