@@ -1,0 +1,84 @@
+---
+import Typography from "@/components/atoms/Typography.astro";
+import Wrapper from "@/components/molecules/Wrapper.astro";
+
+const work = [
+    {
+        period: "2023–2025",
+        title: "Swiss Modernism Showcase",
+        description: `Curated and designed an exhibition highlighting the evolution of Swiss modernism in graphic design, showcasing iconic works and their influence on contemporary design.`,
+        location: "Zurich, Switzerland",
+        link: "#_", // Placeholder link
+    },
+    {
+        period: "2020–2023",
+        title: "Helvetica Redefined",
+        description: `Redesigned the Helvetica type specimen to include modern variations and applications. The project explored the typeface's versatility and its legacy in Swiss design.`,
+        location: "Basel, Switzerland",
+        link: "#_", // Placeholder link
+    },
+    {
+        period: "2017–2020",
+        title: "Swiss Design Principles",
+        description: `Developed educational materials and workshops on the core principles of Swiss design, focusing on grid systems, typography, and minimalist aesthetics.`,
+        location: "Geneva, Switzerland",
+        link: "#_", // Placeholder link
+    },
+];
+---
+
+<section>
+    <Wrapper variant="base" class="py-12">
+        <Typography
+            tag="h3"
+            variant="textBase"
+            class="font-semibold text-zinc-900 dark:text-zinc-200"
+        >
+            Work
+        </Typography>
+
+        <div class="flex flex-col gap-12 mt-8">
+            {
+                work.map((work, index) => (
+                    <div class="grid grid-cols-1  gap-4 md:grid-cols-2 lg:grid-cols-5">
+                        {/* Period */}
+                        <Typography
+                            tag="span"
+                            variant="textSM"
+                            class="font-medium text-zinc-500"
+                        >
+                            {work.period}
+                        </Typography>
+
+                        {/* Work Content */}
+                        <div class="lg:col-span-4">
+                            <a href={work.link}>
+                                <Typography
+                                    tag="h4"
+                                    variant="textBase"
+                                    class="font-semibold text-zinc-900 dark:text-zinc-200  flex justify-between w-full"
+                                >
+                                    {work.title} ↗
+                                </Typography>
+                            </a>
+                            <Typography
+                                tag="p"
+                                variant="textSM"
+                                class="text-zinc-600 dark:text-zinc-500  mt-2"
+                            >
+                                {work.description}
+                            </Typography>
+                            <Typography
+                                tag="p"
+                                variant="textSM"
+                                class="text-zinc-600 dark:text-zinc-500  mt-2"
+                            >
+                                {work.location}
+                            </Typography>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </Wrapper>
+</section>

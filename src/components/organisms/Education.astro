@@ -1,0 +1,79 @@
+---
+import Typography from "@/components/atoms/Typography.astro";
+import Wrapper from "@/components/molecules/Wrapper.astro";
+
+const education = [
+    {
+        period: "2020–2022",
+        title: "Master's in Graphic Design",
+        description: `Focused on Swiss design principles, grid systems, and typography. Completed a thesis on the impact of modernist design on digital interfaces.`,
+        location: "Zurich University of the Arts, Zurich, Switzerland",
+    },
+    {
+        period: "2016–2020",
+        title: "Bachelor's in Visual Communication",
+        description: `Studied visual communication with an emphasis on minimalist design and the history of Swiss typography. Participated in design workshops and exhibitions.`,
+        location: "University of Applied Sciences, Basel, Switzerland",
+    },
+    {
+        period: "2014–2016",
+        title: "Diploma in Design Fundamentals",
+        description: `Learned foundational design principles, including color theory, composition, and the basics of type design. Gained exposure to Swiss design aesthetics.`,
+        location: "Geneva School of Design and Art, Geneva, Switzerland",
+    },
+];
+---
+
+<section>
+    <Wrapper variant="base" class="py-12">
+        <Typography
+            tag="h3"
+            variant="textBase"
+            class="font-semibold text-zinc-900 dark:text-zinc-200"
+        >
+            Education
+        </Typography>
+
+        <div class="flex flex-col gap-12 mt-8">
+            {
+                education.map((work, index) => (
+                    <div class="grid grid-cols-1  gap-4 md:grid-cols-2 lg:grid-cols-5">
+                        {/* Period */}
+                        <Typography
+                            tag="span"
+                            variant="textSM"
+                            class="font-medium text-zinc-500"
+                        >
+                            {work.period}
+                        </Typography>
+
+                        {/* Work Content */}
+                        <div class="lg:col-span-4">
+                            <Typography
+                                tag="h4"
+                                variant="textBase"
+                                class="font-semibold text-zinc-900 dark:text-zinc-200  flex justify-between w-full"
+                            >
+                                {work.title}
+                            </Typography>
+                            <Typography
+                                tag="p"
+                                variant="textSM"
+                                class="text-zinc-600 dark:text-zinc-500  mt-2"
+                            >
+                                {work.description}
+                            </Typography>
+                            <Typography
+                                tag="p"
+                                variant="textSM"
+                                class="text-zinc-600 dark:text-zinc-500  mt-2"
+                            >
+                                {work.location}
+                            </Typography>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </Wrapper>
+</section>

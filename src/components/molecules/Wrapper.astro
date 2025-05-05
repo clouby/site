@@ -1,0 +1,18 @@
+---
+interface Props {
+    variant?: "base"; // Define any variants you need. For example: "base" | "wide"
+    class?: string; // Optional prop for additional classes
+}
+const { variant = "base", class: extraClass = "" } = Astro.props;
+// Map each variant to its specific classes
+const variantClasses = {
+    base: "max-w-xl mx-auto p-8",
+};
+// Combine the classes for the specified variant with any extra classes
+const classes = `${variantClasses[variant]} ${extraClass}`.trim();
+---
+
+<div class={classes}>
+    <!-- Render the default slot content -->
+    <slot />
+</div>

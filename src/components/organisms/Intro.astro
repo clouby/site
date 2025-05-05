@@ -1,0 +1,132 @@
+---
+import Typography from "@/components/atoms/Typography.astro";
+import Wrapper from "@/components/molecules/Wrapper.astro";
+
+import { GITHUB_USERNAME, WRAP_LINKS } from "@/consts";
+
+import { fetchUser } from "@/libs/fetch";
+
+const user = await fetchUser(GITHUB_USERNAME);
+const { post, poetry, github, twitter, generativeCoding } = WRAP_LINKS;
+
+const links = [
+    {
+        label: twitter.name,
+        url: twitter.link,
+        text: `@${twitter.username}`,
+    },
+    {
+        label: github.name,
+        url: github.link,
+        text: `@${github.username}`,
+    },
+];
+---
+
+<section>
+    <Wrapper variant="base" class="lg:pt-24">
+        <div class="flex items-center space-x-4">
+            <img
+                src={user.avatar_url}
+                alt="avatar"
+                width="1000"
+                height="1000"
+                class="size-24 rounded-full object-cover ring ring-zinc-200 dark:ring-zinc-800"
+            />
+            <div>
+                <Typography
+                    tag="h1"
+                    variant="textBase"
+                    class="font-semibold text-zinc-900 dark:text-zinc-200"
+                    >{user.name}</Typography
+                >
+                <Typography
+                    tag="p"
+                    variant="textSM"
+                    class="text-sm text-zinc-600 dark:text-zinc-400"
+                    >{user.bio}</Typography
+                >
+                <Typography
+                    tag="p"
+                    variant="textSM"
+                    class="text-sm text-zinc-600 dark:text-zinc-400"
+                    >{user.location}</Typography
+                >
+                <div class="mt-2 flex">
+                    <a
+                        href={user.html_url}
+                        class="bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200 text-xs h-6 items-center flex rounded-full px-3"
+                        >{user.login} ↗</a
+                    >
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12">
+            <Typography
+                tag="h2"
+                variant="textBase"
+                class="font-medium text-zinc-900 dark:text-zinc-200"
+                >About</Typography
+            >
+            <Typography tag="p" variant="textBase" class="text-zinc-400 mt-4">
+                I am a Software Engineer specializing in Mobile and Front-end
+                Development. My professional focus extends beyond daily
+                programming to include advancing my expertise in <strong
+                    >UX</strong
+                > and
+                <strong>generative coding</strong> methodologies.
+            </Typography>
+            <Typography tag="p" variant="textBase" class="text-zinc-400 mt-4">
+                Some days write some <a
+                    class="hover:underline text-zinc-300"
+                    href={post.link}>{post.name}</a
+                >, the one or another <a
+                    href={poetry.link}
+                    class="hover:underline text-zinc-300"
+                    target="_blank">{poetry.name}</a
+                > in the way, also I&apos;m beginner about{" "}
+                <a
+                    href={generativeCoding.link}
+                    class="hover:underline text-zinc-300"
+                    target="_blank">{generativeCoding.name}</a
+                >{" "}
+                making cool stuffs for provide better experience.
+            </Typography>
+        </div>
+
+        <div class="mt-12 lg:mt-24">
+            <Typography
+                tag="h2"
+                variant="textBase"
+                class="font-semibold text-zinc-900 dark:text-zinc-200 verga"
+                >Contact</Typography
+            >
+            <div class="mt-8">
+                <ul class="lg:col-span-4">
+                    {
+                        links.map((link) => (
+                            <li class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5">
+                                <Typography
+                                    tag="span"
+                                    variant="textBase"
+                                    class=" font-medium text-zinc-900 dark:text-zinc-200"
+                                >
+                                    {link.label}
+                                </Typography>
+                                <Typography
+                                    tag="a"
+                                    variant="textBase"
+                                    href={link.url}
+                                    class="text-zinc-400 hover:underline lg:col-span-4"
+                                >
+                                    {link.text}
+                                </Typography>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+        </div>
+    </Wrapper>
+</section>

@@ -1,0 +1,111 @@
+---
+// Fundations
+import Typography from "@/components/atoms/Typography.astro";
+import Wrapper from "@/components/molecules/Wrapper.astro";
+// Images
+import { Image } from "astro:assets";
+import A1 from "@/images/projects/a/1.gif";
+import A2 from "@/images/projects/a/2.jpg";
+import A3 from "@/images/projects/a/3.jpg";
+import B1 from "@/images/projects/b/1.jpg";
+import B2 from "@/images/projects/b/2.jpg";
+import b3 from "@/images/projects/b/3.jpg";
+const projects = [
+    {
+        year: "2025",
+        title: "Future Framework",
+        description: `Future Framework explores the potential of adaptive design systems for the next generation of digital products. This project envisions a future where responsive design meets AI-driven personalization, pushing the boundaries of user experience.`,
+        images: [], // No images for this project
+    },
+    {
+        year: "2024",
+        title: "Helvetica",
+        description: `Helvetica, the publication, celebrates 100 ideas rooted in the
+      principles and legacy of Swiss design. The project (2019–2021) sought to
+      expand the dialogue around the distinctive precision, functionality,
+      and visual clarity that define Swiss design.`,
+        images: [
+            { src: A1, alt: "Helvetica Project Image 1" },
+            { src: A2, alt: "Helvetica Project Image 2" },
+            { src: A3, alt: "Helvetica Project Image 3" },
+        ],
+    },
+    {
+        year: "2023",
+        title: "Minimal Design Principles",
+        description: `This project focuses on the core tenets of minimalism, dissecting the principles that make minimalist design both timeless and functional. It provides a detailed exploration of reducing complexity while maximizing usability.`,
+        images: [], // No images for this project
+    },
+    {
+        year: "2022",
+        title: "Fenial font",
+        description: `Fenial is inspired by the look of many gothic blackletter scripts
+      that utilise pointed terminals and sharp serifs, combined with the
+      characteristics of some realist typefaces. Fenial’s name is derived from
+      the word Finial meaning “an ornament at the top, end, or corner of an object,
+      often formed to be a decorative feature”.`,
+        images: [
+            { src: B1, alt: "Fenial Font Image 1" },
+            { src: B2, alt: "Fenial Font Image 2" },
+            { src: b3, alt: "Fenial Font Image 3" },
+        ],
+    },
+];
+---
+
+<section>
+    <Wrapper variant="base">
+        <Typography
+            tag="h3"
+            variant="textBase"
+            class="font-semibold text-zinc-900 dark:text-zinc-200"
+        >
+            Projects
+        </Typography>
+        {
+            projects.map((project) => (
+                <div class="grid grid-cols-1 mt-8 gap-4 md:grid-cols-2 lg:grid-cols-5">
+                    {/* Year */}
+                    <Typography
+                        tag="span"
+                        variant="textSM"
+                        class="font-medium text-zinc-500"
+                    >
+                        {project.year}
+                    </Typography>
+
+                    {/* Project Content */}
+                    <div class="lg:col-span-4">
+                        <Typography
+                            tag="h4"
+                            variant="textBase"
+                            class="font-semibold text-zinc-900 dark:text-zinc-200 "
+                        >
+                            {project.title}
+                        </Typography>
+                        <Typography
+                            tag="p"
+                            variant="textSM"
+                            class="text-zinc-600 dark:text-zinc-500  mt-2"
+                        >
+                            {project.description}
+                        </Typography>
+
+                        {/* Images */}
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            {project.images.map((image, index) => (
+                                <Image
+                                    src={image.src}
+                                    alt={image.alt}
+                                    width="1000"
+                                    height="1000"
+                                    class="w-32 shadow rounded object-cover"
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            ))
+        }
+    </Wrapper>
+</section>

@@ -1,0 +1,64 @@
+---
+import Typography from "@/components/atoms/Typography.astro";
+import Wrapper from "@/components/molecules/Wrapper.astro";
+import { getCollection } from "astro:content";
+import { formattedDate } from "@/libs/date";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<section>
+  <Wrapper variant="base" class="py-12">
+    <Typography
+      tag="h3"
+      variant="textBase"
+      class="font-semibold text-zinc-900 dark:text-zinc-200"
+    >
+      Blog
+    </Typography>
+
+    <div class="flex flex-col gap-12 mt-8">
+      {
+        posts.map((post, index) => (
+          <div class="grid grid-cols-1  gap-4 md:grid-cols-2 lg:grid-cols-5">
+            <Typography
+              tag="span"
+              variant="textSM"
+              class="font-medium text-zinc-500"
+            >
+              {formattedDate(post.data.pubDate)}
+            </Typography>
+
+            <div class="lg:col-span-4">
+              <a href={`/blog/${post.id}`} target="_blank">
+                <Typography
+                  tag="h4"
+                  variant="textBase"
+                  class="font-semibold text-zinc-900 dark:text-zinc-200  flex justify-between w-full"
+                >
+                  {post.data.title} ↗
+                </Typography>
+              </a>
+              <Typography
+                tag="p"
+                variant="textSM"
+                class="text-zinc-600 dark:text-zinc-500  mt-2"
+              >
+                {post.data.description}
+              </Typography>
+              <Typography
+                tag="p"
+                variant="textSM"
+                class="text-zinc-600 dark:text-zinc-500  mt-2"
+              >
+                {post.data.tags?.join(", ")}
+              </Typography>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>

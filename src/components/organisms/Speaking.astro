@@ -1,0 +1,80 @@
+---
+import Typography from "@/components/atoms/Typography.astro";
+import Wrapper from "@/components/molecules/Wrapper.astro";
+import { useState } from "react";
+
+const speaking = [
+  {
+    period: "2023",
+    title: "The Evolution of Swiss Typography",
+    description: `Delivered a keynote on how Swiss typography principles have influenced modern digital design. Highlighted the role of grid systems and minimalism.`,
+    location: "International Design Conference, Zurich, Switzerland",
+  },
+  {
+    period: "2022",
+    title: "Mastering Grid Systems",
+    description: `Conducted a workshop on creating effective grid systems for print and digital media, emphasizing the precision and balance of Swiss design.`,
+    location: "Design Week, Basel, Switzerland",
+  },
+  {
+    period: "2021",
+    title: "The Future of Minimalist Design",
+    description: `Participated in a panel discussion about the enduring appeal of minimalist design and its potential applications in emerging technologies.`,
+    location: "European Design Symposium, Geneva, Switzerland",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="base" class="py-12">
+    <Typography
+      tag="h3"
+      variant="textBase"
+      class="font-semibold text-zinc-900 dark:text-zinc-200"
+    >
+      Education
+    </Typography>
+
+    <div class="flex flex-col gap-12 mt-8">
+      {
+        speaking.map((work, index) => (
+          <div class="grid grid-cols-1  gap-4 md:grid-cols-2 lg:grid-cols-5">
+            {/* Period */}
+            <Typography
+              tag="span"
+              variant="textSM"
+              class="font-medium text-zinc-500"
+            >
+              {work.period}
+            </Typography>
+
+            {/* Work Content */}
+            <div class="lg:col-span-4">
+              <Typography
+                tag="h4"
+                variant="textBase"
+                class="font-semibold text-zinc-900 dark:text-zinc-200  flex justify-between w-full"
+              >
+                {work.title}
+              </Typography>
+              <Typography
+                tag="p"
+                variant="textSM"
+                class="text-zinc-600 dark:text-zinc-500  mt-2"
+              >
+                {work.description}
+              </Typography>
+              <Typography
+                tag="p"
+                variant="textSM"
+                class="text-zinc-600 dark:text-zinc-500  mt-2"
+              >
+                {work.location}
+              </Typography>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>
