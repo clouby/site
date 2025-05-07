@@ -1,0 +1,29 @@
+---
+import Typography from "@/components/atoms/Typography.astro";
+
+export interface Props {
+  src: string; // Source URL for the avatar image
+  title: string; // Title or name of the person
+}
+
+const { src, title } = Astro.props;
+---
+
+<div class="inline-flex items-center space-x-2">
+  <img
+    src={src}
+    alt="Avatar"
+    width="1000"
+    height="1000"
+    class="size-7 rounded-full object-cover ring ring-zinc-200 dark:ring-zinc-800"
+  />
+  <div>
+    <Typography
+      tag="span"
+      variant="textXS"
+      class="text-zinc-900 dark:text-zinc-200"
+    >
+      {title}
+    </Typography>
+  </div>
+</div>

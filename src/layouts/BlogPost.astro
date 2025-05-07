@@ -2,12 +2,19 @@
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
+import Avatar from "@/components/atoms/Avatar.astro";
 import Wrapper from "@/components/molecules/Wrapper.astro";
 import { formattedDate } from "@/libs/date";
+
+import { GITHUB_USERNAME } from "@/consts";
+
+import { fetchUser } from "@/libs/fetch";
 
 type Props = CollectionEntry<"blog">["data"] & {
     minutesToRead?: any;
 };
+
+const user = await fetchUser(GITHUB_USERNAME);
 
 const { title, description, pubDate, minutesToRead } = Astro.props;
 ---
@@ -19,9 +26,10 @@ const { title, description, pubDate, minutesToRead } = Astro.props;
                 class="prose prose-zinc prose-sm prose-headings:text-zinc-100 prose-p:text-zinc-400 prose-li:text-zinc-400 prose-ul:text-zinc-400 prose-a:no-underline prose-a:hover:underline prose-a:text-zinc-300 prose-strong:text-zinc-50 prose-code:text-zinc-300"
             >
                 <h1>{title}</h1>
-                <div class="not-prose text-zinc-200">
+                <div class="not-prose text-zinc-200 flex gap-2 items-center">
                     <span>{formattedDate(pubDate)}</span> ·
-                    <span>{minutesToRead}</span>
+                    <span>{minutesToRead}</span> ·
+                    <Avatar src={user.avatar_url} title={user.name}/>
                 </div>
                 <slot />
             </Wrapper>

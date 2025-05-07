@@ -3,6 +3,7 @@ title: "Seamos reactivos con Proxy"
 description: "Aprende a usar Proxy para crear objetos reactivos en JavaScript"
 pubDate: "Aug 05 2021"
 heroImage: "/blog-placeholder-2.jpg"
+draft: false
 ---
 
 Hace pocos días estuve investigando un poco sobre **VueJS**, ya que soy un completo principiante con este interesante framework del cliente, pero en mi pronta investigación, encontré que lanzaron la nueva versión de esta tecnología que sería la **versión 3**, que actualmente ya se encuentra pública y estable.

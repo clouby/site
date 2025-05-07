@@ -3,6 +3,7 @@ title: "Buffers en Node.JS"
 description: "Descripción del contenido del artículo relacionado a Buffers en Node.JS"
 pubDate: "Jun 28 2020"
 heroImage: "/blog-placeholder-2.jpg"
+draft: false
 ---
 
 En el mundo de la internet y lo que mayor importancia se demuestra al navergar, es la información. En general, en la internet es muy comun aprovechar y proveer diferentes tipos de información, como son imágenes, videos, entre otros.
