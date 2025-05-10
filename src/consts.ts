@@ -24,7 +24,7 @@ export const WRAP_LINKS = {
   },
   twitter: {
     name: "Twitter (X)",
-    link: "https://twitter.com/cloubyy",
+    link: "https://twitter.com/cloubyy/",
     username: "cloubyy",
   },
   generativeCoding: {
